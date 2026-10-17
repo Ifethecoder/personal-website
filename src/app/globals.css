@@ -103,3 +103,33 @@ button { cursor: pointer; }
   .tag { transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease; }
   .tag:hover { transform: translateY(-2px); border-color: var(--accent); background: var(--surface); }
 }
+
+/* Project showcases share the quiet colors and spacious editorial rhythm. */
+.project-list { display: grid; gap: clamp(3.5rem, 7vw, 6rem); }
+.project-showcase { display: grid; align-items: center; gap: 2rem; min-width: 0; }
+.project-event { display: flex; align-items: flex-start; gap: .875rem; color: var(--muted); font-size: .75rem; line-height: 1.7; }
+.project-number { color: var(--accent); font-variant-numeric: tabular-nums; }
+.project-event p span { margin-inline: .375rem; }
+.project-title { margin-top: 1.25rem; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.75rem, 4.5vw, 4.25rem); line-height: 1.1; letter-spacing: -.05em; }
+.project-subtitle { margin-top: 1rem; max-width: 30rem; font-size: 1.25rem; line-height: 1.55; text-wrap: pretty; }
+.project-description { margin-top: 1.5rem; color: var(--muted); font-size: 1rem; line-height: 1.85; }
+.project-description p + p { margin-top: 1rem; }
+.project-highlight { display: inline-flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-top: 1.5rem; padding: .6rem .875rem; border: 1px solid var(--accent); border-radius: 6px; color: var(--accent); font-size: .8125rem; line-height: 1.5; }
+.project-photo { min-width: 0; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+.project-image { position: relative; width: 100%; aspect-ratio: 3 / 4; max-height: 34rem; overflow: hidden; }
+.project-photo figcaption { padding: .875rem 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .6875rem; line-height: 1.6; }
+@media (min-width: 64rem) {
+  .project-showcase { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; }
+  .project-copy { order: 2; }
+  .project-photo { order: 1; }
+  .project-reversed .project-copy { order: 1; }
+  .project-reversed .project-photo { order: 2; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { transition: opacity 500ms ease, transform 500ms ease; }
+  .reveal[data-reveal="pending"] { opacity: 0; transform: translateY(14px); }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .project-image img { transition: transform 400ms ease; }
+  .project-showcase:hover .project-image img { transform: scale(1.02); }
+}

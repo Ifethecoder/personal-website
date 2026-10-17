@@ -2,15 +2,15 @@
 
 Inspected all 10 images and sampled the single video. The existing folders are already logical; all originals and filenames are preserved. `src/content/assets.ts` is the central asset map. Images use static imports, so Next.js checks paths at build time and supplies dimensions. The portrait also includes a tiny blur thumbnail derived from its original, since automatic blur generation skips uppercase JPG extensions. Components should select media from this map rather than duplicate paths.
 
-Alt text describes visible content only. Captions are `null` throughout; event dates, roles, outcomes, names, and stories still need the owner's confirmation. Keys derived from filenames are organizational identifiers, not verified biographical claims.
+Alt text describes visible content only. Asset-level captions remain `null`; the About and project descriptions use the owner's Sprint 2 brief. Figure notes identify visible hackathon signage. Other dates, roles, identities, and stories still need confirmation. Keys derived from filenames are organizational identifiers, not verified biographical claims.
 
 | Original path under `public/` | Stored pixels | Approx. size | Selection |
 | --- | --- | --- | --- |
 | `images/profile/profilePic.JPG` | 2432 × 3648 | 1.23 MB | Hero portrait |
 | `images/experience/Amazon'25.jpeg` | 5712 × 4284 | 8.03 MB | Reserved |
 | `images/experience/Amazon'26.jpeg` | 5712 × 4284 | 3.36 MB | Reserved |
-| `images/hackathons/talkToUsersHackathon.JPG` | 1200 × 1600 | 0.26 MB | Reserved |
-| `images/hackathons/treehacks.jpeg` | 5712 × 4284 | 4.01 MB | Reserved |
+| `images/hackathons/talkToUsersHackathon.JPG` | 1200 × 1600 | 0.26 MB | FireSight showcase; general hackathon archive photo |
+| `images/hackathons/treehacks.jpeg` | 5712 × 4284 | 4.01 MB | Yooni showcase |
 | `images/community/colorstack_minerva.JPG` | 6000 × 4000 | 13.24 MB | Reserved |
 | `images/community/colorstack_minerva2.jpeg` | 1920 × 1000 | 0.14 MB | Reserved |
 | `images/highlights/photoWithSamAltman.jpeg` | 5712 × 4284 | 4.20 MB | Reserved |
@@ -22,7 +22,9 @@ Pixel sizes above are stored dimensions; several photos carry orientation metada
 
 ## Current selection and loading
 
-The homepage selects the portrait for the hero and the soccer group photo for About Me. The tactical SVG remains secondary to the hero portrait. All other photos, the badge, and the video remain reserved; the page does not request them.
+The homepage selects the portrait for the hero, the soccer group photo for About Me, and two hackathon photos for Featured Projects. The tactical SVG remains secondary to the hero portrait. All remaining photos, the badge, and the video stay reserved. About and project photos load lazily.
+
+The Talk to Users photo accompanies FireSight as a general hackathon archive image. Its association with the YC Voice Agents Hackathon is unconfirmed, so the figure note names only the visible Talk to Users event. Confirm that association or supply a different FireSight photo before presenting it as a photo of the YC event.
 
 The hero uses `next/image`, a responsive `sizes` value, preload for the primary image, a static-import blur placeholder, and its natural portrait proportions, capped at 360 pixels wide without cropping. Next.js serves optimized responsive image variants; it does not require downloading the full original photo for the hero.
 
@@ -32,4 +34,4 @@ For future photos, use `next/image` with intrinsic dimensions or a sized `fill` 
 
 There is no video player or video preload on the current homepage. Before using the MOV, create an orientation-corrected, compressed MP4/WebM derivative and a real poster frame while retaining the original. A future player should use controls, `playsInline`, `preload="none"`, and no autoplay. If a later design calls for autoplay, it must be muted and disabled for reduced motion. Add captions/transcription if the chosen audio contains meaningful speech.
 
-Provide captions and context for future photo sections. The community call screenshot includes participant details; review those before selecting it for display. Several large originals contain location metadata; consider metadata-cleaned web derivatives before public use. Files under `public/` remain directly accessible even when no component renders them.
+Provide captions and context for future photo sections and confirm the FireSight photo association. The community call screenshot includes participant details; review those before selecting it for display. Several large originals contain location metadata; consider metadata-cleaned web derivatives before public use. Files under `public/` remain directly accessible even when no component renders them.
