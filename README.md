@@ -4,7 +4,7 @@ Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at i
 
 ## Development
 
-Use Node.js 20.9+ (Node 22 recommended).
+Use Node.js 22.13+ for the application and included lint tooling.
 
 ```sh
 npm install
@@ -15,6 +15,7 @@ Open the local URL printed by Next.js.
 
 ```sh
 npm run typecheck
+npm run lint
 npm run build
 npm start
 ```
