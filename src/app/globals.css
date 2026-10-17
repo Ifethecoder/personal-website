@@ -133,3 +133,29 @@ button { cursor: pointer; }
   .project-image img { transition: transform 400ms ease; }
   .project-showcase:hover .project-image img { transform: scale(1.02); }
 }
+
+/* A quiet, static timeline: the engineering work carries the emphasis. */
+.experience-layout { display: grid; gap: 3rem; align-items: start; }
+.experience-timeline { border-left: 1px solid var(--border); margin-left: .375rem; padding-left: 1.5rem; }
+.experience-entry { position: relative; }
+.experience-entry::before { content: ""; position: absolute; top: .35rem; left: -1.9rem; width: .75rem; height: .75rem; background: var(--background); border: 2px solid var(--accent); border-radius: 50%; }
+.experience-timeline > li + li { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+.experience-period { color: var(--accent); font-size: .75rem; line-height: 1.6; letter-spacing: .08em; text-transform: uppercase; }
+.experience-company { margin-top: .75rem; font-family: Georgia, "Times New Roman", serif; font-size: 2.25rem; line-height: 1.2; letter-spacing: -.035em; }
+.experience-role { margin-top: .5rem; font-size: 1.125rem; line-height: 1.6; }
+.experience-context { display: flex; flex-wrap: wrap; gap: .375rem 1rem; margin-top: .5rem; color: var(--muted); font-size: .8125rem; line-height: 1.6; }
+.experience-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 1rem; margin-block: 1.75rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+.experience-metrics > div { display: flex; flex-direction: column; gap: .5rem; }
+.experience-metrics dt { color: var(--muted); font-size: .75rem; line-height: 1.6; max-width: 17rem; }
+.experience-metrics dd { order: -1; font-family: Georgia, "Times New Roman", serif; color: var(--accent); font-size: 2.25rem; line-height: 1.1; letter-spacing: -.04em; font-variant-numeric: lining-nums; }
+.experience-contributions { padding-left: 1rem; list-style: disc; color: var(--muted); font-size: .9375rem; line-height: 1.85; }
+.experience-contributions li + li { margin-top: .75rem; }
+.experience-contributions li::marker { color: var(--accent); }
+.experience-photo { width: 100%; max-width: 360px; justify-self: center; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+.experience-image { position: relative; width: 100%; aspect-ratio: 3 / 4; }
+.experience-photo figcaption { padding: .875rem 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .75rem; line-height: 1.6; }
+@media (min-width: 64rem) {
+  .experience-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 4rem; }
+  .experience-timeline { padding-left: 2rem; }
+  .experience-entry::before { left: -2.4rem; }
+}

@@ -1,3 +1,4 @@
+import { Experience } from "@/components/experience";
 import { FeaturedProjects } from "@/components/featured-projects";
 import { About } from "@/components/about";
 import { Hero } from "@/components/hero";
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <About />
         <FeaturedProjects />
+        <Experience />
       </main>
       <footer className="site-footer flex flex-wrap justify-between gap-3 py-6 text-xs muted">
         <p>A work in progress, with intention.</p>

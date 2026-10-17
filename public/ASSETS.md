@@ -2,13 +2,13 @@
 
 Inspected all 11 images and sampled the single video. The existing folders are already logical; all originals and filenames are preserved. `src/content/assets.ts` is the central asset map. Images use static imports, so Next.js checks paths at build time and supplies dimensions. The portrait also includes a tiny blur thumbnail derived from its original, since automatic blur generation skips uppercase JPG extensions. Components should select media from this map rather than duplicate paths.
 
-Alt text describes visible content only. Asset-level captions remain `null`; the About and project descriptions use the owner's Sprint 2 brief. Figure notes use the owner-confirmed event context or visible hackathon signage. Other dates, roles, identities, and stories still need confirmation. Keys derived from filenames are organizational identifiers, not verified biographical claims.
+Alt text describes visible content only. Asset-level captions remain `null`; the About, project, and experience descriptions use the owner's approved sprint briefs. Figure notes use the owner-confirmed event context or visible hackathon signage. Other dates, roles, identities, and stories still need confirmation. Keys derived from filenames are organizational identifiers, not verified biographical claims.
 
 | Original path under `public/` | Stored pixels | Approx. size | Selection |
 | --- | --- | --- | --- |
 | `images/profile/profilePic.JPG` | 2432 × 3648 | 1.23 MB | Hero portrait |
 | `images/experience/Amazon'25.jpeg` | 5712 × 4284 | 8.03 MB | Reserved |
-| `images/experience/Amazon'26.jpeg` | 5712 × 4284 | 3.36 MB | Reserved |
+| `images/experience/Amazon'26.jpeg` | 5712 × 4284 | 3.36 MB | Experience timeline |
 | `images/hackathons/talkToUsersHackathon.JPG` | 1200 × 1600 | 0.26 MB | Reserved |
 | `images/hackathons/yc_hackathon.jpeg` | 5712 × 4284 | 5.90 MB | FireSight showcase |
 | `images/hackathons/treehacks.jpeg` | 5712 × 4284 | 4.01 MB | Yooni showcase |
@@ -23,7 +23,7 @@ Pixel sizes above are stored dimensions; several photos carry orientation metada
 
 ## Current selection and loading
 
-The homepage selects the portrait for the hero, the soccer group photo for About Me, and two hackathon photos for Featured Projects. The tactical SVG remains secondary to the hero portrait. All remaining photos, the badge, and the video stay reserved. About and project photos load lazily.
+The homepage selects the portrait for the hero, the soccer group photo for About Me, two hackathon photos for Featured Projects, and the 2026 Amazon internship photo for Experience. The tactical SVG remains secondary to the hero portrait. All remaining photos, the badge, and the video stay reserved. About, project, and experience photos load lazily.
 
 FireSight now uses `yc_hackathon.jpeg`, supplied by the owner as the actual YC event photo. The previous Talk to Users image is preserved in the asset map but is not displayed.
 

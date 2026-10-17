@@ -1,6 +1,6 @@
 # Personal website foundation
 
-Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at inspection. The homepage includes the hero, About Me, and exactly two Featured Projects: FireSight and Yooni. Content comes from the owner's brief and existing personal media. Experience, Community, Certifications, and Beyond Code sections are outside this sprint.
+Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at inspection. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), and an Amazon internship timeline. Content comes from the owner's brief and existing personal media. Community, Certifications, Beyond Code, and Contact sections remain outside the current sprint.
 
 ## Development
 
@@ -27,6 +27,8 @@ npm start
 - `src/content/assets.ts`: the complete typed image/video library with verified paths and visual alt text.
 - `src/content/portfolio.ts`: the selected homepage portrait from that library.
 - `src/content/about.ts`: the supplied biography and interests.
+- `src/content/experience.ts`: latest-first internship descriptions, approved technologies, and scoped impact metrics.
+- `src/components/experience.tsx` and `experience-entry.tsx`: a static, reusable timeline and lazily loaded Amazon photo.
 - `src/content/projects.ts`: typed project descriptions, events, tags, image selections, and highlights. Add future projects here; no speculative demo or repository URLs are present.
 - `public/images/`: profile, experience, hackathons, community, highlights, certifications, and soccer.
 - `public/videos/`: the original soccer MOV, reserved for a future player.
@@ -51,6 +53,6 @@ Project images use `object-contain` in reserved-size frames to preserve complete
 - Pause/resume the passing graphic, then enable the OS/browser reduced-motion preference and verify it stays static.
 - Navigate with the keyboard and verify focus visibility, skip link, theme button, and pause control.
 - Scroll through both projects; then enable reduced motion or disable JavaScript and verify all project content remains visible.
-- Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me and two hackathon photos appear in Projects; remaining media stays reserved.
+- Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me and two hackathon photos appear in Projects; the 2026 Amazon photo appears in Experience; remaining media stays reserved.
 
 Development and production scripts use Next.js’s Webpack option because Turbopack’s PostCSS worker could not bind its process port in this environment.
