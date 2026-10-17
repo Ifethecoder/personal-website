@@ -24,7 +24,7 @@ Pixel sizes above are stored dimensions; several photos carry orientation metada
 
 ## Current selection and loading
 
-The homepage selects the portrait for the hero, the soccer group photo for About Me, two hackathon photos for Featured Projects, and both Amazon internship photos beside their respective Experience entries. The tactical SVG remains secondary to the hero portrait. Beyond the Code adds the ColorStack presentation, Talk to Users hackathon, OpenAI event, and soccer photos. The AWS badge and supplied Udacity logo appear in the certifications panel. The unused community-call screenshot and original MOV have been removed from the files and asset mapping. The soccer card includes the silent web MP4 in a native disclosure with manual playback. About, project, experience, and Beyond images load lazily.
+The homepage selects the portrait for the hero, the soccer group photo for About Me, two hackathon photos for Featured Projects, and both Amazon internship photos beside their respective Experience entries. Beyond the Code adds the ColorStack presentation, Talk to Users hackathon, OpenAI event, and soccer photos. The AWS badge and supplied Udacity logo appear in the certifications panel. The unused community-call screenshot and original MOV have been removed from the files and asset mapping. The soccer card includes the silent web MP4 in a native disclosure with manual playback. About, project, experience, and Beyond images load lazily.
 
 FireSight now uses `yc_hackathon.jpeg`, supplied by the owner as the actual YC event photo. The Talk to Users image now appears in Beyond the Code as a general hackathon photo; the Featured Projects event photos are not repeated there.
 

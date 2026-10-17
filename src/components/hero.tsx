@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { portrait } from "@/content/portfolio";
-import { PassingGraphic } from "./passing-graphic";
 
 export function Hero() {
   return (
@@ -28,9 +27,6 @@ export function Hero() {
             className="block h-auto w-full"
           />
         </figure>
-        <div className="lg:col-start-2 lg:row-start-2">
-          <PassingGraphic />
-        </div>
       </div>
     </section>
   );

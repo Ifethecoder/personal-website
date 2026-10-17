@@ -23,7 +23,7 @@ npm start
 ## Structure
 
 - `src/app/`: layout, metadata, page, shared color tokens, and responsive styles.
-- `src/components/`: hero, About, reusable project showcases, experience timeline, section navigation, headings, tags, scroll reveals, theme switcher, and tactical passing graphic.
+- `src/components/`: hero, About, reusable project showcases, experience timeline, section navigation, headings, tags, scroll reveals, and theme switcher.
 - `src/content/assets.ts`: the complete typed image/video library with verified paths and visual alt text.
 - `src/content/portfolio.ts`: the selected homepage portrait from that library.
 - `src/content/about.ts`: the supplied biography and interests.
@@ -46,9 +46,9 @@ Warm neutral backgrounds, forest green accents, editorial system serif headings,
 
 The theme button cycles System → Light → Dark. The default follows the operating system; explicit choices persist when local storage is available, synchronize between tabs, and apply before paint. Theme controls remain usable if storage is blocked.
 
-The decorative SVG uses a single CSS transform animation, no animation dependency, timer, or animation loop in JavaScript. Pause it with the adjacent button. `prefers-reduced-motion: reduce` renders a static graphic and hides the animation control. The SVG is hidden from screen readers; keyboard navigation includes visible focus styles and a skip link.
+The hero pairs editorial text with the portrait. Keyboard navigation includes visible focus styles and a skip link.
 
-Scroll reveals use IntersectionObserver without an animation library. Server-rendered content stays visible without JavaScript or observer support. Elements below the viewport reveal once, and reduced motion disables entrance and hover transforms. Informational tags and project cards have no click actions or artificial tab stops; the theme and animation controls remain keyboard accessible.
+Scroll reveals use IntersectionObserver without an animation library. Server-rendered content stays visible without JavaScript or observer support. Elements below the viewport reveal once, and reduced motion disables entrance and hover transforms. Informational tags and project cards have no click actions or artificial tab stops; the theme and native video controls remain keyboard accessible.
 
 Project images use `object-contain` in reserved-size frames to preserve complete photographs, including orientation metadata. Only the hero portrait is preloaded; other photos are lazy-loaded. FireSight uses the owner-confirmed YC hackathon photo; the Talk to Users photo remains preserved in the asset library.
 
@@ -62,8 +62,7 @@ Before deployment, set the real `NEXT_PUBLIC_SITE_URL` so canonical and social-i
 
 - Check 320px, 390px, 768px, and 1440px widths for overflow, complete photos, stacked mobile sections, and alternating desktop projects.
 - Cycle all themes, reload, and change the system appearance while System is selected.
-- Pause/resume the passing graphic, then enable the OS/browser reduced-motion preference and verify it stays static.
-- Navigate with the keyboard and verify focus visibility, skip link, theme button, pause control, and section navigation. Activate Experience and check the URL fragment, scroll position, and section focus.
+- Navigate with the keyboard and verify focus visibility, skip link, theme button and section navigation. Activate Experience and check the URL fragment, scroll position, and section focus.
 - Open Beyond photos with the keyboard; verify full images, focus containment, Escape/Close, and focus restoration. Disable JavaScript and verify the image links still work.
 - Scroll through both projects; then enable reduced motion or disable JavaScript and verify all project content remains visible.
 - Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me and two hackathon photos appear in Projects; both Amazon photos appear beside their matching Experience entries; remaining media stays reserved.

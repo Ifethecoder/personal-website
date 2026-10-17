@@ -15,6 +15,8 @@ The Contact section currently displays a short “Contact details coming soon”
 
 ## Media
 
+The hero passing animation was removed at the owner’s request. The soccer photos and user-controlled video remain in Beyond the Code.
+
 - Displayed photographs remain untouched. The unused community-call screenshot and original MOV were removed; the optimized MP4 and poster are retained.
 - The soccer web derivative is upright, silent, about 319 KB, and user-controlled; its poster is about 83 KB. The player does not request the MP4 before Play and pauses on collapse.
 - Udacity AI Programming Nanodegree uses the owner-supplied Udacity logo beside its title; no verification URL is invented.
@@ -32,7 +34,7 @@ Do not publish while the origin or public contact method is missing. A résumé 
 
 - ESLint, TypeScript, and the production build pass. The build's missing `metadataBase` warning is expected until the real origin is configured.
 - Headless Chrome checked 1440, 768, 390, and 320 px viewports: no horizontal overflow, complete image loading, preserved portrait proportions, alternating projects, responsive timeline, photo journal, and Contact layout.
-- Keyboard checks pass for all five section links, skip link, theme switch and persistence, animation pause, photo viewer focus containment/Escape/restoration, and native soccer playback. Smooth scrolling is disabled with reduced motion; reveal content remains visible without JavaScript.
+- Keyboard checks pass for all five section links, skip link, theme switch and persistence, photo viewer focus containment/Escape/restoration, and native soccer playback. Smooth scrolling is disabled with reduced motion; reveal content remains visible without JavaScript.
 - Axe reported zero violations in light and dark themes (44 rules passed each). Its manual contrast-review results cover a decorative symbol and the two timeline dates; the dates use accent on background with 5.96:1 light and 9.97:1 dark contrast.
 - All 12 distinct published navigation/asset links resolve. Social preview and favicon routes return HTTP 200. There are no public external contact links to validate yet.
 - Video requests begin only on user playback; closing its disclosure pauses it. Full photo viewer images mount only when opened. Portfolio photos use responsive Next.js image optimization; originals remain preserved.
