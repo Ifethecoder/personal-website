@@ -1,5 +1,7 @@
+import { assets } from "@/content/assets";
 import type { BeyondStory as Story } from "@/content/beyond";
 import { PhotoViewer } from "./photo-viewer";
+import { SoccerVideo } from "./soccer-video";
 import { Tags } from "./tags";
 
 export function BeyondStory({ story }: { story: Story }) {
@@ -17,6 +19,7 @@ export function BeyondStory({ story }: { story: Story }) {
         <p className="eyebrow">{story.category}</p>
         <h3 id={`${story.id}-story-heading`}>{story.title}</h3>
         <p className="beyond-description">{story.description}</p>
+        {story.id === "soccer" && <SoccerVideo video={assets.videos.soccerWeb} poster={assets.images.soccer.poster.src.src} />}
         {story.tags && <Tags items={story.tags} label="Community focus" />}
       </div>
     </article>

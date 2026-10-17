@@ -10,6 +10,7 @@ import colorstackMinervaCall from "../../public/images/community/colorstack_mine
 import personalHighlight from "../../public/images/highlights/photoWithSamAltman.jpeg";
 import awsAiPractitioner from "../../public/images/certifications/aws-certified-ai-practitioner.png";
 import soccerTeam from "../../public/images/soccer/soccer_image.jpeg";
+import soccerPoster from "../../public/images/soccer/soccer-poster.jpg";
 
 export type PortfolioImage = {
   readonly src: StaticImageData;
@@ -63,10 +64,18 @@ export const assets = {
       awsAiPractitioner: { src: awsAiPractitioner, alt: "AWS Certified AI Practitioner foundational badge", caption: null },
     },
     soccer: {
+      poster: { src: soccerPoster, alt: "A player on a floodlit outdoor soccer pitch", caption: null },
       team: { src: soccerTeam, alt: "A group posing in front of a soccer goal on a floodlit field", caption: null },
     },
   },
   videos: {
+    soccerWeb: {
+      src: "/videos/soccer-web.mp4",
+      mimeType: "video/mp4",
+      durationSeconds: 7.6,
+      hasAudio: false,
+      description: "Silent, 8-second clip: a player moves across a floodlit soccer pitch, with a ball and goal in view.",
+    },
     soccer: {
       src: "/videos/soccer_video.mov",
       mimeType: "video/quicktime",

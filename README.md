@@ -49,7 +49,7 @@ Scroll reveals use IntersectionObserver without an animation library. Server-ren
 
 Project images use `object-contain` in reserved-size frames to preserve complete photographs, including orientation metadata. Only the hero portrait is preloaded; other photos are lazy-loaded. FireSight uses the owner-confirmed YC hackathon photo; the Talk to Users photo remains preserved in the asset library.
 
-The original soccer MOV still needs an upright, web-compressed derivative and poster. Beyond uses the existing soccer photo, with no video download or autoplay. Originals are preserved.
+The soccer card keeps its photo and offers a silent, upright, 1280 × 720 MP4 with a poster inside a native disclosure. Video uses native controls and `preload="none"`, with no autoplay. The 319 KB derivative replaces no original media; the original MOV and audio remain preserved. Reproduction commands are in the asset guide.
 
 The header links to About, Projects, Experience, and Beyond using native anchors. Experience is a focusable section target so keyboard activation moves focus to the timeline. Scrolling uses the browser default without an added animation or JavaScript dependency.
 
