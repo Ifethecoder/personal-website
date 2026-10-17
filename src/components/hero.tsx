@@ -4,7 +4,7 @@ import { PassingGraphic } from "./passing-graphic";
 
 export function Hero() {
   return (
-    <section aria-labelledby="hero-heading" className="hero-grid grid items-center gap-14 py-14 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:py-24">
+    <section aria-labelledby="hero-heading" className="hero-grid grid items-center gap-14 py-14 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:gap-x-20 lg:gap-y-0 lg:py-24">
       <div>
         <p className="eyebrow mb-7 flex items-center gap-3"><span className="accent-line" /> Personal portfolio</p>
         <h1 id="hero-heading" className="hero-title">Curiosity<br />in <span>motion.</span></h1>
@@ -17,8 +17,8 @@ export function Hero() {
           <span>One connection at a time</span>
         </div>
       </div>
-      <div className="visual-column mx-auto w-full max-w-md lg:max-w-none">
-        <figure className="portrait-frame relative overflow-hidden">
+      <div className="visual-column mx-auto w-full max-w-md lg:contents">
+        <figure className="portrait-frame relative overflow-hidden lg:col-start-2 lg:row-start-1">
           <Image
             src={portrait.src}
             alt={portrait.alt}
@@ -28,7 +28,9 @@ export function Hero() {
             className="block h-auto w-full"
           />
         </figure>
-        <PassingGraphic />
+        <div className="lg:col-start-2 lg:row-start-2">
+          <PassingGraphic />
+        </div>
       </div>
     </section>
   );
