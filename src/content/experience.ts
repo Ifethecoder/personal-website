@@ -8,6 +8,7 @@ export type ExperienceRole = {
   season: string;
   photo: PortfolioImage;
   photoAspectRatio: string;
+  photoAlignment?: "start" | "center";
   team?: string;
   location?: string;
   contributions: readonly string[];
@@ -43,6 +44,7 @@ export const experiences = [
     season: "Summer",
     photo: assets.images.experience.amazon2025,
     photoAspectRatio: "4 / 3",
+    photoAlignment: "center",
     contributions: [
       "Built a request management system supporting 250+ internal teams.",
       "Developed REST APIs and a React interface for tracking and coordinating internal requests.",

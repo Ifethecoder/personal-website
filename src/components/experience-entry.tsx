@@ -28,7 +28,7 @@ export function ExperienceEntry({ experience }: { experience: ExperienceRole }) 
         </ul>
         <Tags items={experience.technologies} label={`${experience.year} technologies used`} />
       </div>
-      <figure className="experience-photo">
+      <figure className="experience-photo" style={{ alignSelf: experience.photoAlignment }}>
         <div className="experience-image" style={{ aspectRatio: experience.photoAspectRatio }}>
           <Image
             src={experience.photo.src}
