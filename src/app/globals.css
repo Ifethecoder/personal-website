@@ -52,7 +52,7 @@ button { cursor: pointer; }
 .hero-grid { width: 100%; }
 .eyebrow { color: var(--muted); text-transform: uppercase; letter-spacing: .13em; font-size: 10px; line-height: 1.6; font-weight: 600; }
 .accent-line { width: 26px; height: 1px; background: var(--accent); }
-.hero-title { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(3.6rem, 7.4vw, 6.8rem); line-height: .99; letter-spacing: -.065em; }
+.hero-title { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(3.6rem, 5.8vw, 5.25rem); line-height: .99; letter-spacing: -.065em; }
 .hero-title span { color: var(--accent); font-style: italic; }
 .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 .portrait-frame { width: min(100%, 360px); margin-left: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
