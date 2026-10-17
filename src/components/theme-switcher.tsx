@@ -7,7 +7,7 @@ const themes: Theme[] = ["system", "light", "dark"];
 
 function snapshot(): Theme {
   const value = document.documentElement.dataset.theme;
-  return value === "light" || value === "dark" ? value : "system";
+  return value === "light" || value === "system" ? value : "dark";
 }
 
 function subscribe(callback: () => void) {
@@ -17,7 +17,7 @@ function subscribe(callback: () => void) {
     if (event.key === "theme" || event.key === null) {
       const value = event.newValue;
       document.documentElement.dataset.theme =
-        value === "light" || value === "dark" ? value : "system";
+        value === "light" || value === "system" ? value : "dark";
       callback();
     }
   }
@@ -28,7 +28,7 @@ function subscribe(callback: () => void) {
 }
 
 export function ThemeSwitcher() {
-  const theme = useSyncExternalStore(subscribe, snapshot, () => "system" as const);
+  const theme = useSyncExternalStore(subscribe, snapshot, () => "dark" as const);
   const next = themes[(themes.indexOf(theme) + 1) % themes.length];
 
   return (

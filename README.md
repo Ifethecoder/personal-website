@@ -45,7 +45,7 @@ npm start
 
 Warm neutral backgrounds, forest green accents, editorial system serif headings, and system sans-serif body text. All fonts are local system fonts; no external font requests. Edit CSS variables in `src/app/globals.css` to refine the identity.
 
-The theme button cycles System → Light → Dark. The default follows the operating system; explicit choices persist when local storage is available, synchronize between tabs, and apply before paint. Theme controls remain usable if storage is blocked.
+The theme button cycles System → Light → Dark. The default is Dark, including without JavaScript or storage access. System follows the operating system when explicitly selected; saved choices persist when local storage is available, synchronize between tabs, and apply before paint. Theme controls remain usable if storage is blocked.
 
 The hero pairs editorial text with the portrait. Keyboard navigation includes visible focus styles and a skip link.
 
