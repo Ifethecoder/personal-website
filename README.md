@@ -58,6 +58,8 @@ The header links to About, Projects, Experience, Beyond, and Contact using nativ
 
 Before deployment, set the real `NEXT_PUBLIC_SITE_URL` so canonical and social-image URLs use the correct origin. No production domain is assumed; local builds without it use Next.js’s development fallback for the social image. See [launch readiness](docs/LAUNCH.md) for the publication checklist.
 
+Email uses a standard `mailto:` link, which requires a configured mail application or browser handler. Contact also offers a copy-email button with a live confirmation and a selectable-address fallback if clipboard access is blocked.
+
 ## Manual browser checks
 
 - Check 320px, 390px, 768px, and 1440px widths for overflow, complete photos, stacked mobile sections, and alternating desktop projects.

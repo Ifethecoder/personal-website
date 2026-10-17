@@ -1,5 +1,6 @@
 import { contactCopy, contactDetails } from "@/content/contact";
 import { SectionHeading } from "./section-heading";
+import { CopyEmail } from "./copy-email";
 
 export function Contact() {
   const links = [
@@ -29,6 +30,7 @@ export function Contact() {
             ))}
           </ul>
         )}
+        {contactDetails.email && <CopyEmail email={contactDetails.email} />}
       </div>
     </section>
   );
