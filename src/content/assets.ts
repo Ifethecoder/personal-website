@@ -8,6 +8,7 @@ import ycVoiceAgents from "../../public/images/hackathons/yc_hackathon.jpeg";
 import colorstackMinerva from "../../public/images/community/colorstack_minerva.JPG";
 import personalHighlight from "../../public/images/highlights/photoWithSamAltman.jpeg";
 import awsAiPractitioner from "../../public/images/certifications/aws-certified-ai-practitioner.png";
+import udacity from "../../public/images/certifications/udacity.png";
 import soccerTeam from "../../public/images/soccer/soccer_image.jpeg";
 import soccerPoster from "../../public/images/soccer/soccer-poster.jpg";
 
@@ -60,6 +61,7 @@ export const assets = {
     },
     certifications: {
       awsAiPractitioner: { src: awsAiPractitioner, alt: "AWS Certified AI Practitioner foundational badge", caption: null },
+      udacity: { src: udacity, alt: "Udacity logo", caption: null },
     },
     soccer: {
       poster: { src: soccerPoster, alt: "A player on a floodlit outdoor soccer pitch", caption: null },

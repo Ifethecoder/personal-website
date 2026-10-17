@@ -31,7 +31,7 @@ npm start
 - `src/app/opengraph-image.tsx` and `icon.svg`: generated social preview and favicon matching the existing arrow mark.
 - `src/content/contact.ts`: contact copy and owner-confirmed email/profile/résumé values; unset values never render dead links.
 - `src/content/beyond.ts`: owner-supplied personal stories and selections from the asset library.
-- `src/content/certifications.ts`: supplied credential names and the existing AWS badge. The Udacity credential is text-only until an actual image is added. No verification links are invented.
+- `src/content/certifications.ts`: supplied credential names and the existing AWS badge. The Udacity credential uses the owner-supplied Udacity logo. No verification links are invented.
 - `src/components/photo-viewer.tsx`: native dialog with on-demand larger images, Escape handling, focus restoration, and a real-image link fallback.
 - `src/content/experience.ts`: latest-first internship descriptions, approved technologies, and scoped impact metrics.
 - `src/components/experience.tsx` and `experience-entry.tsx`: a static, reusable timeline with a lazily loaded photo for each internship. Each frame reserves the photo’s natural orientation.
