@@ -38,7 +38,7 @@ The AWS badge and owner-supplied Udacity logo are displayed with their credentia
 
 ## Larger photo views
 
-The three Beyond photos use responsive editorial crops. Each thumbnail links to its actual image, preserving a no-JavaScript fallback. With JavaScript, a native modal dialog shows the complete image via `next/image` with `object-contain`. Larger variants load only while a viewer is open. Escape and Close return focus to the initiating photo. No original files are altered.
+Beyond presents three photos, the soccer video, and certifications in five native-scroll carousel slides. The three photos use responsive editorial crops. Each thumbnail links to its actual image, preserving a no-JavaScript fallback. With JavaScript, a native modal dialog shows the complete image via `next/image` with `object-contain`. Larger variants load only while a viewer is open. Escape and Close return focus to the initiating photo. No original files are altered.
 
 ## Video policy and next steps
 

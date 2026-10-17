@@ -143,8 +143,21 @@ button { cursor: pointer; }
 .site-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); font-size: .8125rem; line-height: 1.6; }
 .site-nav a:hover, .site-nav a:focus-visible { color: var(--accent); text-decoration: underline; text-underline-offset: .3em; }
 
-/* A personal photo journal, distinct from project showcases and the timeline. */
-.beyond-grid { display: grid; gap: 1.5rem; }
+/* Native scrolling keeps the journal usable with touch and without JavaScript. */
+.carousel-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 56px; visibility: hidden; }
+.beyond-carousel[data-ready="true"] .carousel-toolbar { visibility: visible; }
+.carousel-count { min-width: 0; color: var(--accent); font-size: .8125rem; line-height: 1.6; font-variant-numeric: tabular-nums; }
+.carousel-current-title { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--muted); }
+.carousel-buttons { display: flex; flex-shrink: 0; gap: .5rem; }
+.carousel-buttons button { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 50%; color: var(--accent); font-size: 1.25rem; }
+.carousel-buttons button:hover, .carousel-buttons button:focus-visible { border-color: var(--accent); background: var(--surface); }
+.carousel-buttons button[aria-disabled="true"] { opacity: .45; cursor: default; }
+.carousel-hint { margin-block: .5rem 1rem; color: var(--muted); font-size: .75rem; line-height: 1.6; }
+.carousel-track { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 100%; gap: 1.5rem; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 4px; padding: 4px 4px 1rem; scrollbar-width: thin; scrollbar-color: var(--accent) var(--surface); }
+.carousel-track:focus-visible { outline-offset: 2px; border-radius: 8px; }
+.carousel-slide { min-width: 0; scroll-snap-align: start; }
+.carousel-slide > .beyond-card, .carousel-slide > .beyond-certifications { height: 100%; }
+.carousel-slide > .beyond-certifications { margin-top: 0; display: flex; flex-direction: column; justify-content: center; }
 .beyond-card { min-width: 0; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
 .beyond-card-copy { padding: clamp(1.25rem, 3vw, 2rem); }
 .beyond-card-copy h3 { margin-top: .75rem; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.15; letter-spacing: -.035em; text-wrap: balance; }
@@ -162,13 +175,12 @@ button { cursor: pointer; }
 .photo-dialog-header button span { font-size: 1.125rem; }
 .photo-dialog-image { position: relative; width: 100%; max-height: min(72svh, 720px); }
 body:has(.photo-dialog[open]) { overflow: hidden; }
-@media (min-width: 48rem) {
-  .beyond-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
 @media (min-width: 64rem) {
-  .beyond-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-  .beyond-card--wide { grid-column: span 7; }
-  .beyond-card--narrow { grid-column: span 5; }
+  .beyond-carousel .beyond-card { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+  .beyond-carousel .beyond-card > figure { display: flex; flex-direction: column; background: var(--background); }
+  .beyond-carousel .photo-trigger { flex: 1; min-height: 22rem; aspect-ratio: auto; }
+  .beyond-carousel .beyond-card-copy { align-self: center; }
+  .beyond-carousel .soccer-video { margin-block: auto; }
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .photo-trigger img { transition: transform 300ms ease; }

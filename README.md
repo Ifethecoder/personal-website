@@ -1,6 +1,6 @@
 # Personal portfolio
 
-Next.js App Router, TypeScript, and Tailwind CSS. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), an Amazon internship timeline, and a Beyond the Code photo and video journal. Content comes from the owner's brief and existing personal media. Beyond covers ColorStack Minerva leadership, hackathons, the OpenAI event, soccer, and the two supplied certifications. Contact and the footer use the owner-verified email, GitHub, and LinkedIn profiles. No résumé link is displayed. See [launch readiness](docs/LAUNCH.md) for the final audit.
+Next.js App Router, TypeScript, and Tailwind CSS. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), an Amazon internship timeline, and a Beyond the Code photo and video carousel. Content comes from the owner's brief and existing personal media. Beyond covers ColorStack Minerva leadership, hackathons, the OpenAI event, soccer, and the two supplied certifications. Contact and the footer use the owner-verified email, GitHub, and LinkedIn profiles. No résumé link is displayed. See [launch readiness](docs/LAUNCH.md) for the final audit.
 
 ## Development
 
@@ -60,11 +60,14 @@ Before deployment, set the real `NEXT_PUBLIC_SITE_URL` so canonical and social-i
 
 Email uses a standard `mailto:` link, which requires a configured mail application or browser handler. Contact also offers a copy-email button with a live confirmation and a selectable-address fallback if clipboard access is blocked.
 
+Beyond the Code has five slides: ColorStack Minerva, hackathons, the OpenAI event, soccer, and certifications. Native horizontal overflow and scroll snap support touch swipes and no-JavaScript browsing without intercepting vertical scrolling. Hydrated controls show the current slide/total and provide Previous/Next; the focusable track supports Left/Right and Home/End. Tabbing to a photo or video reveals its slide, lightboxes retain their existing focus behavior, and leaving the soccer slide pauses its video. No automatic rotation or dependency is added. Reduced motion makes button navigation immediate.
+
 ## Manual browser checks
 
 - Check 320px, 390px, 768px, and 1440px widths for overflow, complete photos, stacked mobile sections, and alternating desktop projects.
 - Cycle all themes, reload, and change the system appearance while System is selected.
 - Navigate with the keyboard and verify focus visibility, skip link, theme button and section navigation. Activate Experience and check the URL fragment, scroll position, and section focus.
+- Move through all five Beyond slides using arrows, Home/End, touch swipes, and the native scrollbar. Check vertical page scrolling remains available and the slide count updates.
 - Open Beyond photos with the keyboard; verify full images, focus containment, Escape/Close, and focus restoration. Disable JavaScript and verify the image links still work.
 - Scroll through both projects; then enable reduced motion or disable JavaScript and verify all project content remains visible.
 - Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me and two hackathon photos appear in Projects; both Amazon photos appear beside their matching Experience entries; remaining media stays reserved.
