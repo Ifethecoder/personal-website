@@ -1,3 +1,4 @@
+import { About } from "@/components/about";
 import { Hero } from "@/components/hero";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 
@@ -11,8 +12,9 @@ export default function Home() {
         </a>
         <ThemeSwitcher />
       </header>
-      <main id="main" className="flex flex-1 items-center" tabIndex={-1}>
+      <main id="main" className="flex-1" tabIndex={-1}>
         <Hero />
+        <About />
       </main>
       <footer className="site-footer flex flex-wrap justify-between gap-3 py-6 text-xs muted">
         <p>A work in progress, with intention.</p>

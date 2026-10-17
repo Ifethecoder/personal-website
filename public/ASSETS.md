@@ -15,14 +15,14 @@ Alt text describes visible content only. Captions are `null` throughout; event d
 | `images/community/colorstack_minerva2.jpeg` | 1920 × 1000 | 0.14 MB | Reserved |
 | `images/highlights/photoWithSamAltman.jpeg` | 5712 × 4284 | 4.20 MB | Reserved |
 | `images/certifications/aws-certified-ai-practitioner.png` | 600 × 600 | 0.05 MB | Reserved |
-| `images/soccer/soccer_image.jpeg` | 5712 × 4284 | 5.59 MB | Reserved |
+| `images/soccer/soccer_image.jpeg` | 5712 × 4284 | 5.59 MB | About Me |
 | `videos/soccer_video.mov` | 1920 × 1080 | 12.61 MB | Reserved; 7.6 seconds, H.264 with audio |
 
 Pixel sizes above are stored dimensions; several photos carry orientation metadata. Next.js optimizes images with that metadata. The sampled video appears sideways; correct orientation in a browser-ready derivative before displaying it. No original was overwritten, renamed, or recompressed.
 
 ## Current selection and loading
 
-Only the portrait is selected for the homepage. The tactical SVG remains the secondary graphic; the hero is not a gallery. All other photos, the badge, and the video stay mapped for later sections and are not requested by the page.
+The homepage selects the portrait for the hero and the soccer group photo for About Me. The tactical SVG remains secondary to the hero portrait. All other photos, the badge, and the video remain reserved; the page does not request them.
 
 The hero uses `next/image`, a responsive `sizes` value, preload for the primary image, a static-import blur placeholder, and its natural portrait proportions, capped at 360 pixels wide without cropping. Next.js serves optimized responsive image variants; it does not require downloading the full original photo for the hero.
 

@@ -1,6 +1,6 @@
 # Personal website foundation
 
-Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at inspection. This pass adds only the hero and shared visual foundation; portfolio sections, personal claims, contact links, and stock imagery are intentionally absent.
+Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at inspection. The homepage includes the hero and About Me, using supplied biographical content and personal media. Additional sections are developed incrementally.
 
 ## Development
 
@@ -26,6 +26,7 @@ npm start
 - `src/components/`: hero, theme switcher, and decorative tactical passing graphic.
 - `src/content/assets.ts`: the complete typed image/video library with verified paths and visual alt text.
 - `src/content/portfolio.ts`: the selected homepage portrait from that library.
+- `src/content/about.ts`: the supplied biography and interests.
 - `public/images/`: profile, experience, hackathons, community, highlights, certifications, and soccer.
 - `public/videos/`: the original soccer MOV, reserved for a future player.
 - [Asset guide](public/ASSETS.md): audit, missing images, and integration instructions.
@@ -44,6 +45,6 @@ The decorative SVG uses a single CSS transform animation, no animation dependenc
 - Cycle all themes, reload, and change the system appearance while System is selected.
 - Pause/resume the passing graphic, then enable the OS/browser reduced-motion preference and verify it stays static.
 - Navigate with the keyboard and verify focus visibility, skip link, theme button, and pause control.
-- Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. Other media stays reserved for future sections.
+- Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me; other media stays reserved.
 
 Development and production scripts use Next.js’s Webpack option because Turbopack’s PostCSS worker could not bind its process port in this environment.
