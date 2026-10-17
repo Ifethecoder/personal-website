@@ -26,7 +26,7 @@ export const experiences = [
     season: "Summer",
     photo: assets.images.experience.amazon2026,
     photoAspectRatio: "3 / 4",
-    team: "IT Services",
+    team: "IT Services Development Team",
     location: "Seattle, Washington",
     contributions: [
       "Built and deployed a production sentiment analysis service for an internal AI assistant serving 60,000+ weekly users.",
@@ -44,6 +44,8 @@ export const experiences = [
     season: "Summer",
     photo: assets.images.experience.amazon2025,
     photoAspectRatio: "4 / 3",
+    team: "Central Efficiency Team",
+    location: "Sunnyvale, California",
     photoAlignment: "center",
     contributions: [
       "Built a request management system supporting 250+ internal teams.",
