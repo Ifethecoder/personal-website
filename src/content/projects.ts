@@ -24,10 +24,8 @@ export const featuredProjects = [
     event: { name: "YC Voice Agents Hackathon", date: "2026-04", dateLabel: "April 2026" },
     tags: ["Voice AI", "Hackathon", "Public Safety"],
     highlight: "2nd Place — B2B Category",
-    image: assets.images.hackathons.talkToUsers,
-    // The owner has not yet confirmed that this photo shows the YC event.
-    // Identify the visible event separately from the supplied project event.
-    imageNote: "From the hackathon archive · Talk to Users",
+    image: assets.images.hackathons.ycVoiceAgents,
+    imageNote: "YC Voice Agents Hackathon · April 2026",
   },
   {
     id: "yooni",

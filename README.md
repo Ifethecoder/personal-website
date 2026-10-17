@@ -42,7 +42,7 @@ The decorative SVG uses a single CSS transform animation, no animation dependenc
 
 Scroll reveals use IntersectionObserver without an animation library. Server-rendered content stays visible without JavaScript or observer support. Elements below the viewport reveal once, and reduced motion disables entrance and hover transforms. Informational tags and project cards have no click actions or artificial tab stops; the theme and animation controls remain keyboard accessible.
 
-Project images use `object-contain` in reserved-size frames to preserve complete photographs, including orientation metadata. Only the hero portrait is preloaded; other photos are lazy-loaded. The Talk to Users photo is labeled as a general hackathon archive image until its association with FireSight's YC event is confirmed.
+Project images use `object-contain` in reserved-size frames to preserve complete photographs, including orientation metadata. Only the hero portrait is preloaded; other photos are lazy-loaded. FireSight uses the owner-confirmed YC hackathon photo; the Talk to Users photo remains preserved in the asset library.
 
 ## Manual browser checks
 

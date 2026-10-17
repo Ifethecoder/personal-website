@@ -4,6 +4,7 @@ import amazon2025 from "../../public/images/experience/Amazon'25.jpeg";
 import amazon2026 from "../../public/images/experience/Amazon'26.jpeg";
 import talkToUsers from "../../public/images/hackathons/talkToUsersHackathon.JPG";
 import treehacks from "../../public/images/hackathons/treehacks.jpeg";
+import ycVoiceAgents from "../../public/images/hackathons/yc_hackathon.jpeg";
 import colorstackMinerva from "../../public/images/community/colorstack_minerva.JPG";
 import colorstackMinervaCall from "../../public/images/community/colorstack_minerva2.jpeg";
 import personalHighlight from "../../public/images/highlights/photoWithSamAltman.jpeg";
@@ -47,6 +48,7 @@ export const assets = {
       amazon2026: { src: amazon2026, alt: "A person standing beside an Amazon welcome interns display", caption: null },
     },
     hackathons: {
+      ycVoiceAgents: { src: ycVoiceAgents, alt: "Four people standing beside a Y Combinator sign outside a building", caption: null },
       talkToUsers: { src: talkToUsers, alt: "Three people standing in front of a Talk to Users event screen", caption: null },
       treehacks: { src: treehacks, alt: "A person standing in front of illuminated TreeHacks lettering", caption: null },
     },
