@@ -3,6 +3,7 @@ const sectionLinks = [
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
   { href: "#beyond", label: "Beyond" },
+  { href: "#contact", label: "Contact" },
 ] as const;
 
 export function SiteNavigation() {

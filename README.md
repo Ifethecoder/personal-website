@@ -1,6 +1,6 @@
 # Personal website foundation
 
-Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at inspection. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), an Amazon internship timeline, and a Beyond the Code photo journal. Content comes from the owner's brief and existing personal media. Beyond covers ColorStack Minerva leadership, hackathons, the OpenAI event, soccer, and the two supplied certifications. Contact remains outside the current sprint.
+Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at inspection. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), an Amazon internship timeline, and a Beyond the Code photo journal. Content comes from the owner's brief and existing personal media. Beyond covers ColorStack Minerva leadership, hackathons, the OpenAI event, soccer, and the two supplied certifications. The final Contact section is ready for owner-confirmed contact values; see [launch readiness](docs/LAUNCH.md).
 
 ## Development
 
@@ -27,6 +27,7 @@ npm start
 - `src/content/assets.ts`: the complete typed image/video library with verified paths and visual alt text.
 - `src/content/portfolio.ts`: the selected homepage portrait from that library.
 - `src/content/about.ts`: the supplied biography and interests.
+- `src/content/contact.ts`: contact copy and owner-confirmed email/profile/résumé values; unset values never render dead links.
 - `src/content/beyond.ts`: owner-supplied personal stories and selections from the asset library.
 - `src/content/certifications.ts`: supplied credential names and the existing AWS badge. The Udacity credential is text-only until an actual image is added. No verification links are invented.
 - `src/components/photo-viewer.tsx`: native dialog with on-demand larger images, Escape handling, focus restoration, and a real-image link fallback.
@@ -51,7 +52,7 @@ Project images use `object-contain` in reserved-size frames to preserve complete
 
 The soccer card keeps its photo and offers a silent, upright, 1280 × 720 MP4 with a poster inside a native disclosure. Video uses native controls and `preload="none"`, with no autoplay. The 319 KB derivative replaces no original media; the original MOV and audio remain preserved. Reproduction commands are in the asset guide.
 
-The header links to About, Projects, Experience, and Beyond using native anchors. Experience is a focusable section target so keyboard activation moves focus to the timeline. Scrolling uses the browser default without an added animation or JavaScript dependency.
+The header links to About, Projects, Experience, Beyond, and Contact using native anchors. Experience is a focusable section target so keyboard activation moves focus to the timeline. Scrolling uses the browser default without an added animation or JavaScript dependency.
 
 ## Manual browser checks
 

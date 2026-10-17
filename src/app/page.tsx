@@ -1,3 +1,4 @@
+import { Contact } from "@/components/contact";
 import { BeyondCode } from "@/components/beyond-code";
 import { SiteNavigation } from "@/components/site-navigation";
 import { Experience } from "@/components/experience";
@@ -23,9 +24,10 @@ export default function Home() {
         <FeaturedProjects />
         <Experience />
         <BeyondCode />
+        <Contact />
       </main>
       <footer className="site-footer flex flex-wrap justify-between gap-3 py-6 text-xs muted">
-        <p>A work in progress, with intention.</p>
+        <p>Ifeoluwa · Curiosity in motion.</p>
         <p>Build · Connect · Play</p>
       </footer>
     </div>

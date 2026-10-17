@@ -159,7 +159,7 @@ button { cursor: pointer; }
   .experience-entry::before { left: -2.4rem; }
 }
 
-.site-nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1.5rem; }
+.site-nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem clamp(.5rem, 2vw, 1.5rem); }
 .site-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); font-size: .8125rem; line-height: 1.6; }
 .site-nav a:hover, .site-nav a:focus-visible { color: var(--accent); text-decoration: underline; text-underline-offset: .3em; }
 
@@ -213,3 +213,21 @@ body:has(.photo-dialog[open]) { overflow: hidden; }
 .soccer-video[open] summary { border-bottom: 1px solid var(--border); }
 .soccer-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #111; }
 .soccer-video p { padding: .75rem 1rem; color: var(--muted); font-size: .75rem; line-height: 1.6; }
+
+.contact-panel { padding: clamp(1.5rem, 4vw, 3.5rem); border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.contact-panel .section-heading { max-width: 52rem; margin-bottom: 1.5rem; }
+.contact-intro { display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; }
+.contact-symbol { display: none; flex-shrink: 0; place-items: center; width: 80px; height: 80px; border: 1px solid var(--accent); border-radius: 50%; color: var(--accent); font-size: 2.75rem; line-height: 1; }
+.contact-invitation { max-width: 36rem; color: var(--muted); font-size: 1.125rem; line-height: 1.8; }
+.contact-pending { margin-top: 2rem; color: var(--muted); font-size: .875rem; line-height: 1.7; }
+.contact-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: .875rem; margin-top: 2rem; }
+.contact-links a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 100%; min-height: 64px; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--background); }
+.contact-link-label { display: block; font-size: .9375rem; line-height: 1.6; }
+.contact-link-detail { display: block; margin-top: .25rem; overflow-wrap: anywhere; color: var(--muted); font-size: .75rem; line-height: 1.6; }
+.contact-link-arrow { color: var(--accent); font-size: 1.25rem; }
+.contact-links a:hover, .contact-links a:focus-visible { border-color: var(--accent); }
+@media (min-width: 64rem) { .contact-symbol { display: grid; } }
+@media (prefers-reduced-motion: no-preference) {
+  .contact-link-arrow { transition: transform 180ms ease; }
+  .contact-links a:hover .contact-link-arrow, .contact-links a:focus-visible .contact-link-arrow { transform: translate(2px, -2px); }
+}
