@@ -22,11 +22,10 @@ export function Hero() {
           <Image
             src={portrait.src}
             alt={portrait.alt}
-            fill
-            sizes="(min-width: 1280px) 511px, (min-width: 1024px) calc(47.62vw - 99.05px), (min-width: 496px) 448px, calc(100vw - 48px)"
+            sizes="(min-width: 408px) 360px, calc(100vw - 48px)"
             preload
             placeholder="blur"
-            className="object-cover object-[50%_15%]"
+            className="block h-auto w-full"
           />
         </figure>
         <PassingGraphic />

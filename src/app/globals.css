@@ -58,7 +58,7 @@ button { cursor: pointer; }
 .hero-title { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(3.6rem, 7.4vw, 6.8rem); line-height: .99; letter-spacing: -.065em; }
 .hero-title span { color: var(--accent); font-style: italic; }
 .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-.portrait-frame { aspect-ratio: 5 / 4; background: var(--surface); border: 1px solid var(--border); border-radius: 120px 120px 6px 6px; }
+.portrait-frame { width: min(100%, 360px); margin-left: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
 .passing-card { margin: 16px 0 0 auto; width: min(100%, 360px); border: 1px solid var(--border); border-radius: 6px; }
 .pitch { display: block; width: 100%; height: auto; color: var(--pitch); }
 .pitch-lines { opacity: .32; }

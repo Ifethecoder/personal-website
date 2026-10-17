@@ -24,7 +24,7 @@ Pixel sizes above are stored dimensions; several photos carry orientation metada
 
 Only the portrait is selected for the homepage. The tactical SVG remains the secondary graphic; the hero is not a gallery. All other photos, the badge, and the video stay mapped for later sections and are not requested by the page.
 
-The hero uses `next/image`, a responsive `sizes` value, preload for the primary image, a static-import blur placeholder, and an intentional portrait crop. Next.js serves optimized responsive image variants; it does not require downloading the full original photo for the hero.
+The hero uses `next/image`, a responsive `sizes` value, preload for the primary image, a static-import blur placeholder, and its natural portrait proportions, capped at 360 pixels wide without cropping. Next.js serves optimized responsive image variants; it does not require downloading the full original photo for the hero.
 
 For future photos, use `next/image` with intrinsic dimensions or a sized `fill` container, the mapped alt text, and an accurate `sizes` value. Leave secondary photos lazy-loaded. Use `object-contain` for the certification badge and screenshots so text is not cropped.
 

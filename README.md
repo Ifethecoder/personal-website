@@ -43,6 +43,6 @@ The decorative SVG uses a single CSS transform animation, no animation dependenc
 - Cycle all themes, reload, and change the system appearance while System is selected.
 - Pause/resume the passing graphic, then enable the OS/browser reduced-motion preference and verify it stays static.
 - Navigate with the keyboard and verify focus visibility, skip link, theme button, and pause control.
-- Verify the real portrait crop, alternative text, blur placeholder, and responsive loading. Other media stays reserved for future sections.
+- Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. Other media stays reserved for future sections.
 
 Development and production scripts use Next.js’s Webpack option because Turbopack’s PostCSS worker could not bind its process port in this environment.
