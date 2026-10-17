@@ -186,12 +186,8 @@ body:has(.photo-dialog[open]) { overflow: hidden; }
   .credential-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-.soccer-video { margin-top: 1.5rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.soccer-video summary { min-height: 44px; padding: .875rem 1rem; cursor: pointer; color: var(--foreground); font-size: .8125rem; line-height: 1.6; }
-.soccer-video summary:focus-visible { outline-offset: -4px; }
-.soccer-video summary::marker { color: var(--accent); }
-.soccer-video[open] summary { border-bottom: 1px solid var(--border); }
 .soccer-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #111; }
+.soccer-video video:focus-visible { outline-offset: -4px; }
 .soccer-video p { padding: .75rem 1rem; color: var(--muted); font-size: .75rem; line-height: 1.6; }
 
 .contact-panel { padding: clamp(1.5rem, 4vw, 3.5rem); border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }

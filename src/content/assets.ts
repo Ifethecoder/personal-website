@@ -30,6 +30,8 @@ type AssetLibrary = {
   }>;
 };
 
+export type PortfolioVideo = AssetLibrary["videos"][string] & { description: string };
+
 // Static imports validate image filenames at build time and provide dimensions
 // and image metadata. Import this server-side; pass only selected media to clients.
 // Alt text describes visible content; null captions await the owner's context.

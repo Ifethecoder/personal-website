@@ -1,4 +1,3 @@
-import { assets } from "@/content/assets";
 import type { BeyondStory as Story } from "@/content/beyond";
 import { PhotoViewer } from "./photo-viewer";
 import { SoccerVideo } from "./soccer-video";
@@ -12,14 +11,17 @@ export function BeyondStory({ story }: { story: Story }) {
   return (
     <article className={`beyond-card beyond-card--${story.layout}`} aria-labelledby={`${story.id}-story-heading`}>
       <figure>
-        <PhotoViewer photo={story.photo} caption={story.caption} sizes={sizes} position={story.photoPosition} aspectRatio={story.photoAspectRatio} />
+        {story.kind === "video" ? (
+          <SoccerVideo video={story.video} poster={story.poster.src.src} />
+        ) : (
+          <PhotoViewer photo={story.photo} caption={story.caption} sizes={sizes} position={story.photoPosition} aspectRatio={story.photoAspectRatio} />
+        )}
         <figcaption className="beyond-caption">{story.caption}</figcaption>
       </figure>
       <div className="beyond-card-copy">
         <p className="eyebrow">{story.category}</p>
         <h3 id={`${story.id}-story-heading`}>{story.title}</h3>
         <p className="beyond-description">{story.description}</p>
-        {story.id === "soccer" && <SoccerVideo video={assets.videos.soccerWeb} poster={assets.images.soccer.poster.src.src} />}
         {story.tags && <Tags items={story.tags} label="Community focus" />}
       </div>
     </article>

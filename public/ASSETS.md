@@ -16,7 +16,7 @@ Alt text describes visible content only. Asset-level captions remain `null`; the
 | `images/highlights/photoWithSamAltman.jpeg` | 5712 × 4284 | 4.20 MB | Beyond: OpenAI Student Collective Builder Party |
 | `images/certifications/aws-certified-ai-practitioner.png` | 600 × 600 | 0.05 MB | Beyond: certifications |
 | `images/certifications/udacity.png` | 1200 × 630 | 0.01 MB | Beyond: Udacity logo beside the credential title |
-| `images/soccer/soccer_image.jpeg` | 5712 × 4284 | 5.59 MB | About Me and Beyond: soccer |
+| `images/soccer/soccer_image.jpeg` | 5712 × 4284 | 5.59 MB | About Me |
 | `videos/soccer-web.mp4` | 1280 × 720 | 0.32 MB | User-controlled silent soccer clip |
 | `images/soccer/soccer-poster.jpg` | 1280 × 720 | 0.08 MB | Poster extracted from the web clip |
 
@@ -24,7 +24,7 @@ Pixel sizes above are stored dimensions; several photos carry orientation metada
 
 ## Current selection and loading
 
-The homepage selects the portrait for the hero, the soccer group photo for About Me, two hackathon photos for Featured Projects, and both Amazon internship photos beside their respective Experience entries. Beyond the Code adds the ColorStack presentation, Talk to Users hackathon, OpenAI event, and soccer photos. The AWS badge and supplied Udacity logo appear in the certifications panel. The unused community-call screenshot and original MOV have been removed from the files and asset mapping. The soccer card includes the silent web MP4 in a native disclosure with manual playback. About, project, experience, and Beyond images load lazily.
+The homepage selects the portrait for the hero, the soccer group photo for About Me, two hackathon photos for Featured Projects, and both Amazon internship photos beside their respective Experience entries. Beyond the Code adds the ColorStack presentation, Talk to Users hackathon, OpenAI event, and the soccer video. The soccer group photo appears only in About Me. The AWS badge and supplied Udacity logo appear in the certifications panel. The unused community-call screenshot and original MOV have been removed from the files and asset mapping. The soccer card uses the silent web MP4 and poster as its primary visual with native playback controls. About, project, experience, and Beyond images load lazily.
 
 FireSight now uses `yc_hackathon.jpeg`, supplied by the owner as the actual YC event photo. The Talk to Users image now appears in Beyond the Code as a general hackathon photo; the Featured Projects event photos are not repeated there.
 
@@ -38,13 +38,13 @@ The AWS badge and owner-supplied Udacity logo are displayed with their credentia
 
 ## Larger photo views
 
-Beyond photos use responsive editorial crops. Each thumbnail links to its actual image, preserving a no-JavaScript fallback. With JavaScript, a native modal dialog shows the complete image via `next/image` with `object-contain`. Larger variants load only while a viewer is open. Escape and Close return focus to the initiating photo. No original files are altered.
+The three Beyond photos use responsive editorial crops. Each thumbnail links to its actual image, preserving a no-JavaScript fallback. With JavaScript, a native modal dialog shows the complete image via `next/image` with `object-contain`. Larger variants load only while a viewer is open. Escape and Close return focus to the initiating photo. No original files are altered.
 
 ## Video policy and next steps
 
 Sprint 5A verified orientation by comparing raw frames with metadata-rotated frames: the pitch, goalposts, and player are upright in the unrotated landscape frames. FFmpeg overrides the incorrect display rotation, scales to 1280 × 720, encodes H.264/yuv420p at CRF 26 with faststart, strips metadata, and omits audio. The 7.6-second MP4 is 318,960 bytes (about 97.5% smaller than the original); the extracted JPEG poster is about 83 KB. The unused original MOV is no longer retained.
 
-The web copy is intentionally silent and has a visible description of the action. Native controls, inline playback, `preload="none"`, and no autoplay keep playback user-controlled under all motion preferences. Opening the disclosure does not start playback. The MP4 is the only video retained.
+The web copy is intentionally silent and has a visible description of the action. Native controls, inline playback, `preload="none"`, and no autoplay keep playback user-controlled under all motion preferences. The visible player has no autoplay and reserves its 16:9 dimensions. The MP4 is the only video retained.
 
 To regenerate the poster:
 

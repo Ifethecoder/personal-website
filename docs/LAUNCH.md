@@ -11,14 +11,14 @@ Set the owner-confirmed values in `src/content/contact.ts`:
 - Public LinkedIn profile URL.
 - Optional résumé: add the actual file under `public/` and use its exact public URL, or provide a real hosted résumé URL. Local files get a download link.
 
-The Contact section currently displays a short “Contact details coming soon” message. Unset values produce no links, buttons, invented addresses, or empty `href` attributes. The section should have at least one real contact method before launch. No backend form is implemented.
+Contact uses the verified email and profile links; email also provides a clipboard button and manual-copy fallback. Unset values produce no links, buttons, invented addresses, or empty `href` attributes. The section should have at least one real contact method before launch. No backend form is implemented.
 
 ## Media
 
-The hero passing animation was removed at the owner’s request. The soccer photos and user-controlled video remain in Beyond the Code.
+The hero passing animation was removed at the owner’s request. The soccer group photo appears once in About Me; Beyond the Code uses the user-controlled soccer video as its primary visual.
 
 - Displayed photographs remain untouched. The unused community-call screenshot and original MOV were removed; the optimized MP4 and poster are retained.
-- The soccer web derivative is upright, silent, about 319 KB, and user-controlled; its poster is about 83 KB. The player does not request the MP4 before Play and pauses on collapse.
+- The soccer web derivative is upright, silent, about 319 KB, and user-controlled; its poster is about 83 KB. The visible player does not request the MP4 before Play and offers native play/pause controls.
 - Udacity AI Programming Nanodegree uses the owner-supplied Udacity logo beside its title; no verification URL is invented.
 
 ## Production origin and metadata
@@ -37,5 +37,5 @@ Do not publish while the origin or public contact method is missing. A résumé 
 - Keyboard checks pass for all five section links, skip link, theme switch and persistence, photo viewer focus containment/Escape/restoration, and native soccer playback. Smooth scrolling is disabled with reduced motion; reveal content remains visible without JavaScript.
 - Axe reported zero violations in light and dark themes (44 rules passed each). Its manual contrast-review results cover a decorative symbol and the two timeline dates; the dates use accent on background with 5.96:1 light and 9.97:1 dark contrast.
 - All 12 distinct published navigation/asset links resolve. Social preview and favicon routes return HTTP 200. There are no public external contact links to validate yet.
-- Video requests begin only on user playback; closing its disclosure pauses it. Full photo viewer images mount only when opened. Portfolio photos use responsive Next.js image optimization; originals remain preserved.
+- Video requests begin only on user playback; the visible player has native controls and no autoplay. Full photo viewer images mount only when opened. Portfolio photos use responsive Next.js image optimization; originals remain preserved.
 - No additional runtime dependencies were introduced. Chrome checks do not replace testing on physical mobile devices or with a screen reader.
