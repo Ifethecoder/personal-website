@@ -27,6 +27,8 @@ npm start
 - `src/content/assets.ts`: the complete typed image/video library with verified paths and visual alt text.
 - `src/content/portfolio.ts`: the selected homepage portrait from that library.
 - `src/content/about.ts`: the supplied biography and interests.
+- `src/content/site.ts`: approved title/description and optional real production origin.
+- `src/app/opengraph-image.tsx` and `icon.svg`: generated social preview and favicon matching the existing arrow mark.
 - `src/content/contact.ts`: contact copy and owner-confirmed email/profile/résumé values; unset values never render dead links.
 - `src/content/beyond.ts`: owner-supplied personal stories and selections from the asset library.
 - `src/content/certifications.ts`: supplied credential names and the existing AWS badge. The Udacity credential is text-only until an actual image is added. No verification links are invented.
@@ -53,6 +55,8 @@ Project images use `object-contain` in reserved-size frames to preserve complete
 The soccer card keeps its photo and offers a silent, upright, 1280 × 720 MP4 with a poster inside a native disclosure. Video uses native controls and `preload="none"`, with no autoplay. The 319 KB derivative replaces no original media; the original MOV and audio remain preserved. Reproduction commands are in the asset guide.
 
 The header links to About, Projects, Experience, Beyond, and Contact using native anchors. Experience is a focusable section target so keyboard activation moves focus to the timeline. Scrolling uses the browser default without an added animation or JavaScript dependency.
+
+Before deployment, set the real `NEXT_PUBLIC_SITE_URL` so canonical and social-image URLs use the correct origin. No production domain is assumed; local builds without it use Next.js’s development fallback for the social image. See [launch readiness](docs/LAUNCH.md) for missing content and configuration.
 
 ## Manual browser checks
 
