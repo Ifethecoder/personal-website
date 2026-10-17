@@ -29,7 +29,7 @@ export default function Home() {
         <Contact />
       </main>
       <footer className="site-footer flex flex-wrap items-center justify-between gap-3 py-6 text-xs muted">
-        <p>{site.name} · Curiosity in motion.</p>
+        <p>{site.name} · Building things. Making moves.</p>
         <nav aria-label="Footer contact links" className="footer-links">
           {contactDetails.email && <a href={`mailto:${contactDetails.email}`}>Email</a>}
           {contactDetails.github && <a href={contactDetails.github}>GitHub</a>}
