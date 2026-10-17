@@ -23,7 +23,7 @@ npm start
 ## Structure
 
 - `src/app/`: layout, metadata, page, shared color tokens, and responsive styles.
-- `src/components/`: hero, About, reusable project showcases, section headings, informational tags, scroll reveals, theme switcher, and tactical passing graphic.
+- `src/components/`: hero, About, reusable project showcases, experience timeline, section navigation, headings, tags, scroll reveals, theme switcher, and tactical passing graphic.
 - `src/content/assets.ts`: the complete typed image/video library with verified paths and visual alt text.
 - `src/content/portfolio.ts`: the selected homepage portrait from that library.
 - `src/content/about.ts`: the supplied biography and interests.
@@ -46,12 +46,14 @@ Scroll reveals use IntersectionObserver without an animation library. Server-ren
 
 Project images use `object-contain` in reserved-size frames to preserve complete photographs, including orientation metadata. Only the hero portrait is preloaded; other photos are lazy-loaded. FireSight uses the owner-confirmed YC hackathon photo; the Talk to Users photo remains preserved in the asset library.
 
+The header links to About, Projects, and Experience using native anchors. Experience is a focusable section target so keyboard activation moves focus to the timeline. Scrolling uses the browser default without an added animation or JavaScript dependency.
+
 ## Manual browser checks
 
 - Check 320px, 390px, 768px, and 1440px widths for overflow, complete photos, stacked mobile sections, and alternating desktop projects.
 - Cycle all themes, reload, and change the system appearance while System is selected.
 - Pause/resume the passing graphic, then enable the OS/browser reduced-motion preference and verify it stays static.
-- Navigate with the keyboard and verify focus visibility, skip link, theme button, and pause control.
+- Navigate with the keyboard and verify focus visibility, skip link, theme button, pause control, and section navigation. Activate Experience and check the URL fragment, scroll position, and section focus.
 - Scroll through both projects; then enable reduced motion or disable JavaScript and verify all project content remains visible.
 - Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me and two hackathon photos appear in Projects; the 2026 Amazon photo appears in Experience; remaining media stays reserved.
 

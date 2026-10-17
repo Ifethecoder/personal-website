@@ -159,3 +159,7 @@ button { cursor: pointer; }
   .experience-timeline { padding-left: 2rem; }
   .experience-entry::before { left: -2.4rem; }
 }
+
+.site-nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1.5rem; }
+.site-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); font-size: .8125rem; line-height: 1.6; }
+.site-nav a:hover, .site-nav a:focus-visible { color: var(--accent); text-decoration: underline; text-underline-offset: .3em; }
