@@ -28,7 +28,7 @@ npm start
 - `src/content/portfolio.ts`: the selected homepage portrait from that library.
 - `src/content/about.ts`: the supplied biography and interests.
 - `src/content/experience.ts`: latest-first internship descriptions, approved technologies, and scoped impact metrics.
-- `src/components/experience.tsx` and `experience-entry.tsx`: a static, reusable timeline and lazily loaded Amazon photo.
+- `src/components/experience.tsx` and `experience-entry.tsx`: a static, reusable timeline with a lazily loaded photo for each internship. Each frame reserves the photo’s natural orientation.
 - `src/content/projects.ts`: typed project descriptions, events, tags, image selections, and highlights. Add future projects here; no speculative demo or repository URLs are present.
 - `public/images/`: profile, experience, hackathons, community, highlights, certifications, and soccer.
 - `public/videos/`: the original soccer MOV, reserved for a future player.
@@ -55,6 +55,6 @@ The header links to About, Projects, and Experience using native anchors. Experi
 - Pause/resume the passing graphic, then enable the OS/browser reduced-motion preference and verify it stays static.
 - Navigate with the keyboard and verify focus visibility, skip link, theme button, pause control, and section navigation. Activate Experience and check the URL fragment, scroll position, and section focus.
 - Scroll through both projects; then enable reduced motion or disable JavaScript and verify all project content remains visible.
-- Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me and two hackathon photos appear in Projects; the 2026 Amazon photo appears in Experience; remaining media stays reserved.
+- Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me and two hackathon photos appear in Projects; both Amazon photos appear beside their matching Experience entries; remaining media stays reserved.
 
 Development and production scripts use Next.js’s Webpack option because Turbopack’s PostCSS worker could not bind its process port in this environment.

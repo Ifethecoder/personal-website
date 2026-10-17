@@ -7,8 +7,8 @@ Alt text describes visible content only. Asset-level captions remain `null`; the
 | Original path under `public/` | Stored pixels | Approx. size | Selection |
 | --- | --- | --- | --- |
 | `images/profile/profilePic.JPG` | 2432 × 3648 | 1.23 MB | Hero portrait |
-| `images/experience/Amazon'25.jpeg` | 5712 × 4284 | 8.03 MB | Reserved |
-| `images/experience/Amazon'26.jpeg` | 5712 × 4284 | 3.36 MB | Experience timeline |
+| `images/experience/Amazon'25.jpeg` | 5712 × 4284 | 8.03 MB | Summer 2025 Experience entry |
+| `images/experience/Amazon'26.jpeg` | 5712 × 4284 | 3.36 MB | Summer 2026 Experience entry |
 | `images/hackathons/talkToUsersHackathon.JPG` | 1200 × 1600 | 0.26 MB | Reserved |
 | `images/hackathons/yc_hackathon.jpeg` | 5712 × 4284 | 5.90 MB | FireSight showcase |
 | `images/hackathons/treehacks.jpeg` | 5712 × 4284 | 4.01 MB | Yooni showcase |
@@ -23,7 +23,7 @@ Pixel sizes above are stored dimensions; several photos carry orientation metada
 
 ## Current selection and loading
 
-The homepage selects the portrait for the hero, the soccer group photo for About Me, two hackathon photos for Featured Projects, and the 2026 Amazon internship photo for Experience. The tactical SVG remains secondary to the hero portrait. All remaining photos, the badge, and the video stay reserved. About, project, and experience photos load lazily.
+The homepage selects the portrait for the hero, the soccer group photo for About Me, two hackathon photos for Featured Projects, and both Amazon internship photos beside their respective Experience entries. The tactical SVG remains secondary to the hero portrait. All remaining photos, the badge, and the video stay reserved. About, project, and experience photos load lazily.
 
 FireSight now uses `yc_hackathon.jpeg`, supplied by the owner as the actual YC event photo. The previous Talk to Users image is preserved in the asset map but is not displayed.
 
