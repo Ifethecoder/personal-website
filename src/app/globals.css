@@ -140,8 +140,13 @@ button { cursor: pointer; }
 }
 
 .site-nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem clamp(.5rem, 2vw, 1.5rem); }
-.site-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); font-size: .8125rem; line-height: 1.6; }
-.site-nav a:hover, .site-nav a:focus-visible { color: var(--accent); text-decoration: underline; text-underline-offset: .3em; }
+.site-nav a { position: relative; display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); font-size: .8125rem; line-height: 1.6; }
+.site-nav a:hover, .site-nav a:focus-visible, .site-nav a[aria-current="location"] { color: var(--accent); }
+.site-nav a::after { content: ""; position: absolute; inset-inline: 0; bottom: 5px; height: 2px; border-radius: 2px; background: var(--accent); opacity: 0; transform: scaleX(0); transform-origin: left; }
+.site-nav a[aria-current="location"]::after { opacity: 1; transform: scaleX(1); }
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav a::after { transition: transform 200ms ease, opacity 200ms ease; }
+}
 
 /* Native scrolling keeps the journal usable with touch and without JavaScript. */
 .carousel-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 56px; visibility: hidden; }

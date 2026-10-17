@@ -48,13 +48,13 @@ The theme button cycles System → Light → Dark. The default follows the opera
 
 The hero pairs editorial text with the portrait. Keyboard navigation includes visible focus styles and a skip link.
 
-Scroll reveals use IntersectionObserver without an animation library. Server-rendered content stays visible without JavaScript or observer support. Elements below the viewport reveal once, and reduced motion disables entrance and hover transforms. Informational tags and project cards have no click actions or artificial tab stops; the theme and native video controls remain keyboard accessible.
+Section headings and project showcases use the shared IntersectionObserver reveal without an animation library. Server-rendered content stays visible without JavaScript or observer support. Elements below the viewport reveal once, and reduced motion disables entrance and hover transforms. Informational tags and project cards have no click actions or artificial tab stops; the theme and native video controls remain keyboard accessible.
 
 Project images use `object-contain` in reserved-size frames to preserve complete photographs, including orientation metadata. Only the hero portrait is preloaded; other photos are lazy-loaded. FireSight uses the owner-confirmed YC hackathon photo; the Talk to Users photo remains preserved in the asset library.
 
 The soccer card displays a silent, upright, 1280 × 720 MP4 with a poster and reserved 16:9 proportions. The soccer group photo appears only in About Me. Video uses native controls and `preload="none"`, with no autoplay. The unused original MOV and community-call screenshot have been removed; the 319 KB web video and its poster remain. The asset guide records the retained media.
 
-The header links to About, Experience, Projects, Beyond, and Contact using native anchors. Every navigation target is programmatically focusable, so keyboard activation moves focus into its section. CSS smooth scrolling applies only when reduced motion is not requested; no scrolling dependency is used.
+The header links to About, Experience, Projects, Beyond, and Contact using native anchors. Every navigation target is programmatically focusable, so keyboard activation moves focus into its section. A passive scroll listener, coalesced with animation frames, tracks the section in view and applies `aria-current="location"` with a subtle green underline. The underline and heading reveals respect reduced motion. Initial section fragments and browser hash changes retain native anchor behavior; no scrolling dependency is used.
 
 Before deployment, set the real `NEXT_PUBLIC_SITE_URL` so canonical and social-image URLs use the correct origin. No production domain is assumed; local builds without it use Next.js’s development fallback for the social image. See [launch readiness](docs/LAUNCH.md) for the publication checklist.
 
@@ -66,7 +66,7 @@ Beyond the Code has five slides: ColorStack Minerva, hackathons, the OpenAI even
 
 - Check 320px, 390px, 768px, and 1440px widths for overflow, complete photos, stacked mobile sections, and alternating desktop projects.
 - Cycle all themes, reload, and change the system appearance while System is selected.
-- Navigate with the keyboard and verify focus visibility, skip link, theme button and section navigation. Activate Experience and check the URL fragment, scroll position, and section focus.
+- Navigate with the keyboard and verify focus visibility, skip link, theme button and section navigation. Open a direct section URL, scroll between sections, and verify the active underline follows the viewport. Activate Experience and check the URL fragment, scroll position, and section focus.
 - Move through all five Beyond slides using arrows, Home/End, touch swipes, and the native scrollbar. Check vertical page scrolling remains available and the slide count updates.
 - Open Beyond photos with the keyboard; verify full images, focus containment, Escape/Close, and focus restoration. Disable JavaScript and verify the image links still work.
 - Scroll through both projects; then enable reduced motion or disable JavaScript and verify all project content remains visible.
