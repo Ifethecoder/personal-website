@@ -26,3 +26,14 @@ Set `NEXT_PUBLIC_SITE_URL` to the actual HTTPS origin in the deployment environm
 With a real origin configured, the app emits a root canonical URL, Open Graph URL, and absolute social image URLs. Without it, no canonical or Open Graph page URL is invented. The generated 1200 × 630 social preview uses only the supplied first name, approved interests, and Minerva course of study; no social handle is fabricated. The SVG favicon reuses the existing circle-and-arrow header mark.
 
 Do not publish while the origin or public contact method is missing. A résumé and Udacity certificate image remain optional content additions.
+
+
+## Sprint 5A validation
+
+- ESLint, TypeScript, and the production build pass. The build's missing `metadataBase` warning is expected until the real origin is configured.
+- Headless Chrome checked 1440, 768, 390, and 320 px viewports: no horizontal overflow, complete image loading, preserved portrait proportions, alternating projects, responsive timeline, photo journal, and Contact layout.
+- Keyboard checks pass for all five section links, skip link, theme switch and persistence, animation pause, photo viewer focus containment/Escape/restoration, and native soccer playback. Smooth scrolling is disabled with reduced motion; reveal content remains visible without JavaScript.
+- Axe reported zero violations in light and dark themes (44 rules passed each). Its manual contrast-review results cover a decorative symbol and the two timeline dates; the dates use accent on background with 5.96:1 light and 9.97:1 dark contrast.
+- All 12 distinct published navigation/asset links resolve. Social preview and favicon routes return HTTP 200. There are no public external contact links to validate yet.
+- Video requests begin only on user playback; closing its disclosure pauses it. Full photo viewer images mount only when opened. Portfolio photos use responsive Next.js image optimization; originals remain preserved.
+- No additional runtime dependencies were introduced. Chrome checks do not replace testing on physical mobile devices or with a screen reader.

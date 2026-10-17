@@ -54,7 +54,7 @@ Project images use `object-contain` in reserved-size frames to preserve complete
 
 The soccer card keeps its photo and offers a silent, upright, 1280 × 720 MP4 with a poster inside a native disclosure. Video uses native controls and `preload="none"`, with no autoplay. The 319 KB derivative replaces no original media; the original MOV and audio remain preserved. Reproduction commands are in the asset guide.
 
-The header links to About, Projects, Experience, Beyond, and Contact using native anchors. Experience is a focusable section target so keyboard activation moves focus to the timeline. Scrolling uses the browser default without an added animation or JavaScript dependency.
+The header links to About, Projects, Experience, Beyond, and Contact using native anchors. Every navigation target is programmatically focusable, so keyboard activation moves focus into its section. CSS smooth scrolling applies only when reduced motion is not requested; no scrolling dependency is used.
 
 Before deployment, set the real `NEXT_PUBLIC_SITE_URL` so canonical and social-image URLs use the correct origin. No production domain is assumed; local builds without it use Next.js’s development fallback for the social image. See [launch readiness](docs/LAUNCH.md) for missing content and configuration.
 

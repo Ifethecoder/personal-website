@@ -126,6 +126,7 @@ button { cursor: pointer; }
   .project-reversed .project-photo { order: 2; }
 }
 @media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
   .reveal { transition: opacity 500ms ease, transform 500ms ease; }
   .reveal[data-reveal="pending"] { opacity: 0; transform: translateY(14px); }
 }

@@ -8,7 +8,7 @@ export function About() {
   const photo = assets.images.soccer.team;
 
   return (
-    <section id="about" className="content-section" aria-labelledby="about-heading">
+    <section id="about" className="content-section" aria-labelledby="about-heading" tabIndex={-1}>
       <SectionHeading id="about-heading" number="01" label="About" title={about.heading} />
       <div className="about-layout">
         <div>
