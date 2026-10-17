@@ -44,7 +44,7 @@ The three Beyond photos use responsive editorial crops. Each thumbnail links to 
 
 Sprint 5A verified orientation by comparing raw frames with metadata-rotated frames: the pitch, goalposts, and player are upright in the unrotated landscape frames. FFmpeg overrides the incorrect display rotation, scales to 1280 × 720, encodes H.264/yuv420p at CRF 26 with faststart, strips metadata, and omits audio. The 7.6-second MP4 is 318,960 bytes (about 97.5% smaller than the original); the extracted JPEG poster is about 83 KB. The unused original MOV is no longer retained.
 
-The web copy is intentionally silent and has a visible description of the action. Native controls, inline playback, `preload="none"`, and no autoplay keep playback user-controlled under all motion preferences. The visible player has no autoplay and reserves its 16:9 dimensions. The MP4 is the only video retained.
+The web copy is intentionally silent and has a screen reader description of the action. Native controls, inline playback, `preload="none"`, and no autoplay keep playback user-controlled under all motion preferences. The visible player has no autoplay and reserves its 16:9 dimensions. The MP4 is the only video retained.
 
 To regenerate the poster:
 

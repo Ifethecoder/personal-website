@@ -188,7 +188,6 @@ body:has(.photo-dialog[open]) { overflow: hidden; }
 
 .soccer-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #111; }
 .soccer-video video:focus-visible { outline-offset: -4px; }
-.soccer-video p { padding: .75rem 1rem; color: var(--muted); font-size: .75rem; line-height: 1.6; }
 
 .contact-panel { padding: clamp(1.5rem, 4vw, 3.5rem); border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 .contact-panel .section-heading { max-width: 52rem; margin-bottom: 1.5rem; }

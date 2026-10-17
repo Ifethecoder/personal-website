@@ -22,7 +22,7 @@ export function SoccerVideo({ video, poster }: SoccerVideoProps) {
         <source src={video.src} type={video.mimeType} />
         Your browser does not support this video. <a href={video.src}>Download the silent soccer clip</a>.
       </video>
-      <p id="soccer-video-description">{video.description}</p>
+      <p id="soccer-video-description" className="sr-only">{video.description}</p>
     </div>
   );
 }
