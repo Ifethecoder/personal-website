@@ -39,3 +39,18 @@ Do not publish while the origin or public contact method is missing. A résumé 
 - All 12 distinct published navigation/asset links resolve. Social preview and favicon routes return HTTP 200. There are no public external contact links to validate yet.
 - Video requests begin only on user playback; the visible player has native controls and no autoplay. Full photo viewer images mount only when opened. Portfolio photos use responsive Next.js image optimization; originals remain preserved.
 - No additional runtime dependencies were introduced. Chrome checks do not replace testing on physical mobile devices or with a screen reader.
+
+
+## Soccer bonus round validation
+
+The Beyond carousel now contains four slides: the three existing photo stories and certifications. The soccer video appears once, in a dedicated bonus round below it, using the existing optimized MP4 and poster. No new media or dependencies were added.
+
+- The SVG/CSS penalty shot reveals the native player and announces “GOOOAL! Highlight reel unlocked!” without moving focus. Replay resets the ball, closes the highlights, pauses/rewinds the clip, and returns focus to the shot button.
+- “Skip to highlights” is a native disclosure, available without JavaScript. Opening the player does not autoplay or request the MP4 before user playback. Reserved player space prevents a layout jump during reveal.
+- Reduced motion completes the shot immediately, including when the preference changes mid-shot. Hiding the highlights, scrolling the player out of view, or hiding the browser tab pauses playback.
+- ESLint, TypeScript, and the production build pass. The existing missing-production-origin warning remains until `NEXT_PUBLIC_SITE_URL` is configured.
+- Chrome checked 320, 390, 768, and 1440 px layouts in both themes, with no horizontal overflow or height change on reveal. Keyboard checks cover shot, replay, skip, native playback, mid-shot cancellation, and focus preservation. No-JavaScript access works.
+- Carousel regression checks cover four-slide counts, arrow controls, Home/End, focus traversal, photo lightbox containment/Escape/restoration, touch swipes, independent vertical scrolling, and no-JavaScript browsing.
+- Axe reported zero violations in both themes (45 rules passed each); Chrome reported no runtime exceptions. Physical-device and assistive-technology testing remain useful before launch.
+
+No push or deployment was performed.

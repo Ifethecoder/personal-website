@@ -3,6 +3,8 @@ import { Certifications } from "./certifications";
 import { BeyondStory } from "./beyond-story";
 import { SectionHeading } from "./section-heading";
 import { Carousel } from "./carousel";
+import { SoccerBonus } from "./soccer-bonus";
+import { SoccerVideo } from "./soccer-video";
 
 export function BeyondCode() {
   return (
@@ -12,7 +14,9 @@ export function BeyondCode() {
         ...beyondStories.map((story) => ({ id: story.id, label: story.title, content: <BeyondStory story={story} /> })),
         { id: "certifications", label: "Certifications", content: <Certifications /> },
       ]} />
-      <div className="soccer-highlight"><BeyondStory story={soccerStory} /></div>
+      <SoccerBonus story={{ category: soccerStory.category, title: soccerStory.title, description: soccerStory.description, caption: soccerStory.caption }}>
+        <SoccerVideo video={soccerStory.video} poster={soccerStory.poster.src.src} />
+      </SoccerBonus>
     </section>
   );
 }

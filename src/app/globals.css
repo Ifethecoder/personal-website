@@ -205,7 +205,49 @@ body:has(.photo-dialog[open]) { overflow: hidden; }
 
 .soccer-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #111; }
 .soccer-video video:focus-visible { outline-offset: -4px; }
-.soccer-highlight { max-width: 50rem; margin: 3rem auto 0; }
+.soccer-bonus { margin-top: clamp(3rem, 6vw, 5rem); padding: clamp(1.25rem, 3vw, 2.5rem); border: 1px solid var(--border); border-radius: 16px; background: var(--surface); }
+.bonus-top { display: grid; align-items: center; gap: 2rem; }
+.bonus-intro h3 { margin-top: 1rem; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.1; letter-spacing: -.05em; }
+.bonus-description { max-width: 25rem; margin-top: 1.25rem; font-size: 1.125rem; line-height: 1.7; }
+.bonus-note { margin-top: .75rem; color: var(--muted); font-size: .875rem; line-height: 1.7; }
+.bonus-pitch { display: block; width: 100%; height: auto; color: var(--accent); }
+.bonus-pitch-ground { fill: var(--background); stroke: var(--border); stroke-width: 2; }
+.bonus-ball { transform: translate(300px, 286px); transform-origin: 0 0; }
+.soccer-bonus[data-phase="goal"] .bonus-ball { transform: translate(334px, 94px) rotate(440deg) scale(.4); }
+.bonus-play-controls { display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem; visibility: hidden; }
+.soccer-bonus[data-enhanced="true"] .bonus-play-controls { visibility: visible; }
+.bonus-play-controls button { min-height: 44px; padding: .65rem 1.125rem; border: 1px solid var(--accent); border-radius: 999px; font-size: .8125rem; line-height: 1.6; }
+.bonus-shoot { color: var(--background); background: var(--accent); }
+.bonus-shoot[aria-disabled="true"] { opacity: .65; cursor: default; }
+.bonus-replay { color: var(--accent); }
+.bonus-replay:hover, .bonus-replay:focus-visible { background: var(--background); }
+.bonus-celebration { display: flex; align-items: center; justify-content: center; min-height: 3rem; margin-top: .5rem; color: var(--accent); font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: 2rem; line-height: 1.2; }
+.bonus-highlight-slot { max-width: 50rem; margin: 1.5rem auto 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--background); }
+.bonus-highlights summary { min-height: 44px; padding: .875rem 1.25rem; color: var(--accent); cursor: pointer; font-size: .875rem; line-height: 1.6; }
+.bonus-highlights summary:focus-visible { outline-offset: -4px; }
+.bonus-highlights[open] + .bonus-locked-preview, .bonus-when-open { display: none; }
+.bonus-highlights[open] .bonus-when-open { display: inline; }
+.bonus-highlights[open] .bonus-when-closed { display: none; }
+.bonus-reel-header { padding: 1.25rem; border-top: 1px solid var(--border); }
+.bonus-reel-header h4 { margin-top: .5rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.75rem; line-height: 1.2; letter-spacing: -.035em; }
+.bonus-unlock-message { min-height: 1.7em; margin-top: .5rem; color: var(--accent); font-size: .8125rem; line-height: 1.7; }
+.bonus-video-frame { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; }
+.bonus-waiting { display: grid; place-items: center; padding: 1rem; background: var(--surface); color: var(--muted); text-align: center; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.25rem, 3vw, 2rem); }
+.bonus-reel-caption { padding: .875rem 1.25rem; color: var(--muted); font-size: .75rem; line-height: 1.6; }
+@media (min-width: 64rem) { .bonus-top { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); } }
+@media (prefers-reduced-motion: no-preference) {
+  .soccer-bonus[data-phase="shooting"] .bonus-ball { animation: bonus-shot 850ms cubic-bezier(.2, .65, .3, 1) both; }
+  .soccer-bonus[data-phase="goal"] .bonus-celebration span { animation: bonus-cheer 400ms ease-out both; }
+}
+@keyframes bonus-shot {
+  0% { transform: translate(300px, 286px) rotate(0deg) scale(1); }
+  50% { transform: translate(318px, 166px) rotate(220deg) scale(.7); }
+  100% { transform: translate(334px, 94px) rotate(440deg) scale(.4); }
+}
+@keyframes bonus-cheer {
+  from { opacity: 0; transform: scale(.94); }
+  to { opacity: 1; transform: scale(1); }
+}
 
 .contact-panel { padding: clamp(1.5rem, 4vw, 3.5rem); border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 .contact-panel .section-heading { max-width: 52rem; margin-bottom: 1.5rem; }

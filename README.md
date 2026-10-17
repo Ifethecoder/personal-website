@@ -1,6 +1,6 @@
 # Personal portfolio
 
-Next.js App Router, TypeScript, and Tailwind CSS. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), an Amazon internship timeline, and a Beyond the Code photo and video carousel. Content comes from the owner's brief and existing personal media. Beyond covers ColorStack Minerva leadership, hackathons, the OpenAI event, soccer, and the two supplied certifications. Contact and the footer use the owner-verified email, GitHub, and LinkedIn profiles. No résumé link is displayed. See [launch readiness](docs/LAUNCH.md) for the final audit.
+Next.js App Router, TypeScript, and Tailwind CSS. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), an Amazon internship timeline, and a Beyond the Code photo carousel with a soccer bonus round. Content comes from the owner's brief and existing personal media. Beyond covers ColorStack Minerva leadership, hackathons, the OpenAI event, soccer, and the two supplied certifications. Contact and the footer use the owner-verified email, GitHub, and LinkedIn profiles. No résumé link is displayed. See [launch readiness](docs/LAUNCH.md) for the final audit.
 
 ## Development
 
@@ -31,6 +31,7 @@ npm start
 - `src/app/opengraph-image.tsx` and `icon.svg`: generated social preview and favicon matching the existing arrow mark.
 - `src/content/contact.ts`: contact copy and owner-confirmed email/profile/résumé values; unset values never render dead links.
 - `src/content/beyond.ts`: owner-supplied personal stories and selections from the asset library.
+- `src/content/soccer.ts`: bonus-round interface copy; `soccer-bonus.tsx` handles the small penalty interaction and `penalty-pitch.tsx` draws the SVG pitch.
 - `src/content/certifications.ts`: supplied credential names and the existing AWS badge. The Udacity credential uses the owner-supplied Udacity logo. No verification links are invented.
 - `src/components/photo-viewer.tsx`: native dialog with on-demand larger images, Escape handling, focus restoration, and a real-image link fallback.
 - `src/content/experience.ts`: latest-first internship descriptions, approved technologies, and scoped impact metrics.
@@ -52,7 +53,7 @@ Section headings and project showcases use the shared IntersectionObserver revea
 
 Project images use `object-contain` in reserved-size frames to preserve complete photographs, including orientation metadata. Only the hero portrait is preloaded; other photos are lazy-loaded. FireSight uses the owner-confirmed YC hackathon photo; the Talk to Users photo remains preserved in the asset library.
 
-The dedicated soccer area below the carousel displays a silent, upright, 1280 × 720 MP4 with a poster and reserved 16:9 proportions. The soccer group photo appears only in About Me. Video uses native controls and `preload="none"`, with no autoplay. The unused original MOV and community-call screenshot have been removed; the 319 KB web video and its poster remain. The asset guide records the retained media.
+The soccer bonus round below the carousel reveals a silent, upright, 1280 × 720 MP4 with a poster and reserved 16:9 proportions. The soccer group photo appears only in About Me. Video uses native controls and `preload="none"`, with no autoplay. The unused original MOV and community-call screenshot have been removed; the 319 KB web video and its poster remain. The asset guide records the retained media.
 
 The header links to About, Experience, Projects, Beyond, and Contact using native anchors. Every navigation target is programmatically focusable, so keyboard activation moves focus into its section. A passive scroll listener, coalesced with animation frames, tracks the section in view and applies `aria-current="location"` with a subtle green underline. The underline and heading reveals respect reduced motion. Initial section fragments and browser hash changes retain native anchor behavior; no scrolling dependency is used.
 
@@ -60,7 +61,9 @@ Before deployment, set the real `NEXT_PUBLIC_SITE_URL` so canonical and social-i
 
 Email uses a standard `mailto:` link, which requires a configured mail application or browser handler. Contact also offers a copy-email button with a live confirmation and a selectable-address fallback if clipboard access is blocked.
 
-Beyond the Code has four slides: ColorStack Minerva, hackathons, the OpenAI event, and certifications. The soccer video sits in its own area below the carousel. Native horizontal overflow and scroll snap support touch swipes and no-JavaScript browsing without intercepting vertical scrolling. Hydrated controls show the current slide/total and provide Previous/Next; the focusable track supports Left/Right and Home/End. Tabbing to a photo reveals its slide and lightboxes retain their existing focus behavior. No automatic rotation or dependency is added. Reduced motion makes button navigation immediate.
+Beyond the Code has four slides: ColorStack Minerva, hackathons, the OpenAI event, and certifications. The soccer video sits in the bonus round below the carousel. Native horizontal overflow and scroll snap support touch swipes and no-JavaScript browsing without intercepting vertical scrolling. Hydrated controls show the current slide/total and provide Previous/Next; the focusable track supports Left/Right and Home/End. Tabbing to a photo reveals its slide and lightboxes retain their existing focus behavior. No automatic rotation or dependency is added. Reduced motion makes button navigation immediate.
+
+The bonus round uses a short CSS penalty animation, a polite goal announcement, and a native highlights disclosure. “Skip to highlights” works without JavaScript. Reduced motion completes the shot immediately; replay resets the ball and pauses/rewinds the clip. Hiding the highlights, leaving the video viewport, or hiding the browser tab pauses playback. The reveal reserves the player’s space and never starts playback automatically.
 
 ## Manual browser checks
 
@@ -68,6 +71,7 @@ Beyond the Code has four slides: ColorStack Minerva, hackathons, the OpenAI even
 - Cycle all themes, reload, and change the system appearance while System is selected.
 - Navigate with the keyboard and verify focus visibility, skip link, theme button and section navigation. Open a direct section URL, scroll between sections, and verify the active underline follows the viewport. Activate Experience and check the URL fragment, scroll position, and section focus.
 - Move through all four Beyond slides using arrows, Home/End, touch swipes, and the native scrollbar. Check vertical page scrolling remains available and the slide count updates.
+- Take a shot, replay, and skip directly to highlights with keyboard and touch. Confirm the goal announcement, stable layout, immediate reduced-motion result, and no automatic video playback. Play the clip, then hide it or replay and verify it pauses; replay also rewinds. With JavaScript disabled, open the native highlights disclosure.
 - Open Beyond photos with the keyboard; verify full images, focus containment, Escape/Close, and focus restoration. Disable JavaScript and verify the image links still work.
 - Scroll through both projects; then enable reduced motion or disable JavaScript and verify all project content remains visible.
 - Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me and two hackathon photos appear in Projects; both Amazon photos appear beside their matching Experience entries; remaining media stays reserved.
