@@ -180,7 +180,7 @@ button { cursor: pointer; }
 .photo-dialog-header h4 { font-size: .8125rem; line-height: 1.6; }
 .photo-dialog-header button { flex-shrink: 0; display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; padding: .5rem .75rem; border: 1px solid var(--border); border-radius: 999px; font-size: .75rem; }
 .photo-dialog-header button span { font-size: 1.125rem; }
-.photo-dialog-image { position: relative; width: 100%; height: min(72svh, 720px); }
+.photo-dialog-image { position: relative; width: 100%; max-height: min(72svh, 720px); }
 body:has(.photo-dialog[open]) { overflow: hidden; }
 @media (min-width: 48rem) {
   .beyond-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

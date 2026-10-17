@@ -10,7 +10,7 @@ export function BeyondStory({ story }: { story: Story }) {
   return (
     <article className={`beyond-card beyond-card--${story.layout}`} aria-labelledby={`${story.id}-story-heading`}>
       <figure>
-        <PhotoViewer photo={story.photo} caption={story.caption} sizes={sizes} position={story.photoPosition} />
+        <PhotoViewer photo={story.photo} caption={story.caption} sizes={sizes} position={story.photoPosition} aspectRatio={story.photoAspectRatio} />
         <figcaption className="beyond-caption">{story.caption}</figcaption>
       </figure>
       <div className="beyond-card-copy">

@@ -9,6 +9,7 @@ export type BeyondStory = {
   caption: string;
   layout: "wide" | "narrow";
   photoPosition: string;
+  photoAspectRatio: string;
   tags?: readonly string[];
 };
 
@@ -22,6 +23,7 @@ export const beyondStories = [
     caption: "ColorStack Minerva",
     layout: "wide",
     photoPosition: "50% 50%",
+    photoAspectRatio: "3 / 2",
     tags: ["Community building", "Technical workshops", "Student leadership"],
   },
   {
@@ -33,6 +35,7 @@ export const beyondStories = [
     caption: "From the hackathon archive · Talk to Users",
     layout: "narrow",
     photoPosition: "50% 52%",
+    photoAspectRatio: "3 / 4",
   },
   {
     id: "openai",
@@ -43,6 +46,7 @@ export const beyondStories = [
     caption: "OpenAI Student Collective Builder Party",
     layout: "narrow",
     photoPosition: "50% 27%",
+    photoAspectRatio: "3 / 4",
   },
   {
     id: "soccer",
@@ -53,5 +57,6 @@ export const beyondStories = [
     caption: "Away from the keyboard, on the pitch.",
     layout: "wide",
     photoPosition: "50% 52%",
+    photoAspectRatio: "4 / 3",
   },
 ] as const satisfies readonly BeyondStory[];

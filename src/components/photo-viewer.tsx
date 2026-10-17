@@ -9,9 +9,10 @@ type PhotoViewerProps = {
   caption: string;
   sizes: string;
   position: string;
+  aspectRatio: string;
 };
 
-export function PhotoViewer({ photo, caption, sizes, position }: PhotoViewerProps) {
+export function PhotoViewer({ photo, caption, sizes, position, aspectRatio }: PhotoViewerProps) {
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLAnchorElement>(null);
   const titleId = useId();
@@ -55,7 +56,7 @@ export function PhotoViewer({ photo, caption, sizes, position }: PhotoViewerProp
           <button type="button" autoFocus onClick={() => dialog.current?.close()} aria-label="Close photo">Close <span aria-hidden="true">×</span></button>
         </div>
         {opened && (
-          <div className="photo-dialog-image">
+          <div className="photo-dialog-image" style={{ aspectRatio }}>
             <Image
               src={photo.src}
               alt={photo.alt}
