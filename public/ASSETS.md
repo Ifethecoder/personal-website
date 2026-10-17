@@ -24,7 +24,7 @@ Pixel sizes above are stored dimensions; several photos carry orientation metada
 
 ## Current selection and loading
 
-The homepage selects the portrait for the hero, the soccer group photo for About Me, two hackathon photos for Featured Projects, and both Amazon internship photos beside their respective Experience entries. Beyond the Code adds the ColorStack presentation, Talk to Users hackathon, OpenAI event, and the soccer video. The soccer group photo appears only in About Me. The AWS badge and supplied Udacity logo appear in the certifications panel. The unused community-call screenshot and original MOV have been removed from the files and asset mapping. The soccer card uses the silent web MP4 and poster as its primary visual with native playback controls. About, project, experience, and Beyond images load lazily.
+The homepage selects the portrait for the hero, the soccer group photo for About Me, two hackathon photos for Featured Projects, and both Amazon internship photos beside their respective Experience entries. Beyond the Code adds the ColorStack presentation, Talk to Users hackathon, OpenAI event, and the soccer video. The soccer group photo appears only in About Me. The AWS badge and supplied Udacity logo appear in the certifications panel. The unused community-call screenshot and original MOV have been removed from the files and asset mapping. The dedicated soccer area below the carousel uses the silent web MP4 and poster as its primary visual with native playback controls. About, project, experience, and Beyond images load lazily.
 
 FireSight now uses `yc_hackathon.jpeg`, supplied by the owner as the actual YC event photo. The Talk to Users image now appears in Beyond the Code as a general hackathon photo; the Featured Projects event photos are not repeated there.
 
@@ -38,7 +38,7 @@ The AWS badge and owner-supplied Udacity logo are displayed with their credentia
 
 ## Larger photo views
 
-Beyond presents three photos, the soccer video, and certifications in five native-scroll carousel slides. The three photos use responsive editorial crops. Each thumbnail links to its actual image, preserving a no-JavaScript fallback. With JavaScript, a native modal dialog shows the complete image via `next/image` with `object-contain`. Larger variants load only while a viewer is open. Escape and Close return focus to the initiating photo. No original files are altered.
+Beyond presents three photos and certifications in four native-scroll carousel slides; the soccer video sits below the carousel. The three photos use responsive editorial crops. Each thumbnail links to its actual image, preserving a no-JavaScript fallback. With JavaScript, a native modal dialog shows the complete image via `next/image` with `object-contain`. Larger variants load only while a viewer is open. Escape and Close return focus to the initiating photo. No original files are altered.
 
 ## Video policy and next steps
 

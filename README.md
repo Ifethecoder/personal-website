@@ -52,7 +52,7 @@ Section headings and project showcases use the shared IntersectionObserver revea
 
 Project images use `object-contain` in reserved-size frames to preserve complete photographs, including orientation metadata. Only the hero portrait is preloaded; other photos are lazy-loaded. FireSight uses the owner-confirmed YC hackathon photo; the Talk to Users photo remains preserved in the asset library.
 
-The soccer card displays a silent, upright, 1280 × 720 MP4 with a poster and reserved 16:9 proportions. The soccer group photo appears only in About Me. Video uses native controls and `preload="none"`, with no autoplay. The unused original MOV and community-call screenshot have been removed; the 319 KB web video and its poster remain. The asset guide records the retained media.
+The dedicated soccer area below the carousel displays a silent, upright, 1280 × 720 MP4 with a poster and reserved 16:9 proportions. The soccer group photo appears only in About Me. Video uses native controls and `preload="none"`, with no autoplay. The unused original MOV and community-call screenshot have been removed; the 319 KB web video and its poster remain. The asset guide records the retained media.
 
 The header links to About, Experience, Projects, Beyond, and Contact using native anchors. Every navigation target is programmatically focusable, so keyboard activation moves focus into its section. A passive scroll listener, coalesced with animation frames, tracks the section in view and applies `aria-current="location"` with a subtle green underline. The underline and heading reveals respect reduced motion. Initial section fragments and browser hash changes retain native anchor behavior; no scrolling dependency is used.
 
@@ -60,14 +60,14 @@ Before deployment, set the real `NEXT_PUBLIC_SITE_URL` so canonical and social-i
 
 Email uses a standard `mailto:` link, which requires a configured mail application or browser handler. Contact also offers a copy-email button with a live confirmation and a selectable-address fallback if clipboard access is blocked.
 
-Beyond the Code has five slides: ColorStack Minerva, hackathons, the OpenAI event, soccer, and certifications. Native horizontal overflow and scroll snap support touch swipes and no-JavaScript browsing without intercepting vertical scrolling. Hydrated controls show the current slide/total and provide Previous/Next; the focusable track supports Left/Right and Home/End. Tabbing to a photo or video reveals its slide, lightboxes retain their existing focus behavior, and leaving the soccer slide pauses its video. No automatic rotation or dependency is added. Reduced motion makes button navigation immediate.
+Beyond the Code has four slides: ColorStack Minerva, hackathons, the OpenAI event, and certifications. The soccer video sits in its own area below the carousel. Native horizontal overflow and scroll snap support touch swipes and no-JavaScript browsing without intercepting vertical scrolling. Hydrated controls show the current slide/total and provide Previous/Next; the focusable track supports Left/Right and Home/End. Tabbing to a photo reveals its slide and lightboxes retain their existing focus behavior. No automatic rotation or dependency is added. Reduced motion makes button navigation immediate.
 
 ## Manual browser checks
 
 - Check 320px, 390px, 768px, and 1440px widths for overflow, complete photos, stacked mobile sections, and alternating desktop projects.
 - Cycle all themes, reload, and change the system appearance while System is selected.
 - Navigate with the keyboard and verify focus visibility, skip link, theme button and section navigation. Open a direct section URL, scroll between sections, and verify the active underline follows the viewport. Activate Experience and check the URL fragment, scroll position, and section focus.
-- Move through all five Beyond slides using arrows, Home/End, touch swipes, and the native scrollbar. Check vertical page scrolling remains available and the slide count updates.
+- Move through all four Beyond slides using arrows, Home/End, touch swipes, and the native scrollbar. Check vertical page scrolling remains available and the slide count updates.
 - Open Beyond photos with the keyboard; verify full images, focus containment, Escape/Close, and focus restoration. Disable JavaScript and verify the image links still work.
 - Scroll through both projects; then enable reduced motion or disable JavaScript and verify all project content remains visible.
 - Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me and two hackathon photos appear in Projects; both Amazon photos appear beside their matching Experience entries; remaining media stays reserved.

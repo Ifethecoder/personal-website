@@ -51,15 +51,16 @@ export const beyondStories = [
     photoPosition: "50% 27%",
     photoAspectRatio: "3 / 4",
   },
-  {
-    id: "soccer",
-    kind: "video",
-    category: "Outside tech",
-    title: "Time on the pitch.",
-    description: "Soccer is one of my favorite hobbies.",
-    video: assets.videos.soccerWeb,
-    poster: assets.images.soccer.poster,
-    caption: "Away from the keyboard, on the pitch.",
-    layout: "wide",
-  },
 ] as const satisfies readonly BeyondStory[];
+
+export const soccerStory = {
+  id: "soccer",
+  kind: "video",
+  category: "Outside tech",
+  title: "Time on the pitch.",
+  description: "Soccer is one of my favorite hobbies.",
+  video: assets.videos.soccerWeb,
+  poster: assets.images.soccer.poster,
+  caption: "Away from the keyboard, on the pitch.",
+  layout: "wide",
+} as const satisfies BeyondStory;
