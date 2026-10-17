@@ -1,0 +1,70 @@
+import type { StaticImageData } from "next/image";
+import profile from "../../public/images/profile/profilePic.JPG";
+import amazon2025 from "../../public/images/experience/Amazon'25.jpeg";
+import amazon2026 from "../../public/images/experience/Amazon'26.jpeg";
+import talkToUsers from "../../public/images/hackathons/talkToUsersHackathon.JPG";
+import treehacks from "../../public/images/hackathons/treehacks.jpeg";
+import colorstackMinerva from "../../public/images/community/colorstack_minerva.JPG";
+import colorstackMinervaCall from "../../public/images/community/colorstack_minerva2.jpeg";
+import personalHighlight from "../../public/images/highlights/photoWithSamAltman.jpeg";
+import awsAiPractitioner from "../../public/images/certifications/aws-certified-ai-practitioner.png";
+import soccerTeam from "../../public/images/soccer/soccer_image.jpeg";
+
+export type PortfolioImage = {
+  readonly src: StaticImageData;
+  readonly alt: string;
+  // Captions and event context must come from the owner, not filenames.
+  readonly caption: string | null;
+};
+
+type AssetLibrary = {
+  images: Record<string, Record<string, PortfolioImage>>;
+  videos: Record<string, {
+    src: string;
+    mimeType: string;
+    durationSeconds: number;
+    hasAudio: boolean;
+    description: string | null;
+  }>;
+};
+
+// Static imports validate image filenames at build time and provide dimensions
+// and blur data. Import this server-side; pass only selected media to clients.
+// Alt text describes visible content; null captions await the owner's context.
+export const assets = {
+  images: {
+    profile: {
+      portrait: { src: profile, alt: "Portrait of me smiling against a coral background", caption: null },
+    },
+    experience: {
+      amazon2025: { src: amazon2025, alt: "A person standing beside an Amazon sign outside an office building", caption: null },
+      amazon2026: { src: amazon2026, alt: "A person standing beside an Amazon welcome interns display", caption: null },
+    },
+    hackathons: {
+      talkToUsers: { src: talkToUsers, alt: "Three people standing in front of a Talk to Users event screen", caption: null },
+      treehacks: { src: treehacks, alt: "A person standing in front of illuminated TreeHacks lettering", caption: null },
+    },
+    community: {
+      colorstackMinerva: { src: colorstackMinerva, alt: "Two people presenting beside a screen reading Your profile is your pitch", caption: null },
+      colorstackMinervaCall: { src: colorstackMinervaCall, alt: "A video call with a shared coding exercise and participant tiles", caption: null },
+    },
+    highlights: {
+      personalHighlight: { src: personalHighlight, alt: "Two people standing together indoors", caption: null },
+    },
+    certifications: {
+      awsAiPractitioner: { src: awsAiPractitioner, alt: "AWS Certified AI Practitioner foundational badge", caption: null },
+    },
+    soccer: {
+      team: { src: soccerTeam, alt: "A group posing in front of a soccer goal on a floodlit field", caption: null },
+    },
+  },
+  videos: {
+    soccer: {
+      src: "/videos/soccer_video.mov",
+      mimeType: "video/quicktime",
+      durationSeconds: 7.6,
+      hasAudio: true,
+      description: null,
+    },
+  },
+} as const satisfies AssetLibrary;
