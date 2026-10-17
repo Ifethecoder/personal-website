@@ -28,7 +28,7 @@ npm start
 - `src/content/portfolio.ts`: the selected homepage portrait from that library.
 - `src/content/about.ts`: the supplied biography and interests.
 - `src/content/site.ts`: approved title/description and optional real production origin.
-- `src/app/opengraph-image.tsx` and `icon.svg`: generated social preview and favicon matching the existing arrow mark.
+- `src/app/opengraph-image.tsx` and `icon.svg`: generated social preview and favicon using the green circle brand motif.
 - `src/content/contact.ts`: contact copy and owner-confirmed email/profile/résumé values; unset values never render dead links.
 - `src/content/beyond.ts`: owner-supplied personal stories and selections from the asset library.
 - `src/content/soccer.ts`: bonus-round interface copy; `soccer-bonus.tsx` handles the small penalty interaction and `penalty-pitch.tsx` draws the SVG pitch.

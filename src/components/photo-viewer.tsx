@@ -35,7 +35,7 @@ export function PhotoViewer({ photo, caption, sizes, position, aspectRatio }: Ph
         }}
       >
         <Image src={photo.src} alt={photo.alt} fill sizes={sizes} className="object-cover" style={{ objectPosition: position }} />
-        <span className="photo-view-label" aria-hidden="true">View photo <span>↗</span></span>
+        <span className="photo-view-label" aria-hidden="true">View photo</span>
       </a>
       <dialog
         ref={dialog}

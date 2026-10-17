@@ -11,7 +11,6 @@ export default function OpenGraphImage() {
       <div style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 28 }}>
         <svg width="48" height="48" viewBox="0 0 32 32">
           <circle cx="16" cy="16" r="16" fill="#426647" />
-          <path d="M9 23 23 9M12 9h11v11" fill="none" stroke="#f6f5ef" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         <span>{site.name} · Portfolio</span>
       </div>

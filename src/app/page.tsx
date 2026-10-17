@@ -15,7 +15,7 @@ export default function Home() {
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="site-header flex flex-wrap items-center justify-between gap-4 py-6 sm:py-8">
         <a href="/" aria-label="Personal portfolio home" className="wordmark inline-flex items-center gap-3 text-sm font-semibold">
-          <span className="brand-symbol" aria-hidden="true">↗</span> A personal space
+          A personal space
         </a>
         <SiteNavigation />
         <ThemeSwitcher />

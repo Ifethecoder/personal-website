@@ -15,7 +15,6 @@ export function Contact() {
       <div className="contact-panel">
         <div className="contact-intro">
           <SectionHeading id="contact-heading" number="05" label="Let's connect" title={contactCopy.heading} />
-          <span className="contact-symbol" aria-hidden="true">↗</span>
         </div>
         <p className="contact-invitation">{contactCopy.invitation}</p>
         {links.length > 0 && (

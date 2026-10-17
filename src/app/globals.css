@@ -46,7 +46,6 @@ button { cursor: pointer; }
 .muted, .hero-description { color: var(--muted); }
 .site-header { border-bottom: 1px solid var(--border); }
 .site-footer { border-top: 1px solid var(--border); }
-.brand-symbol { display: grid; place-items: center; width: 30px; height: 30px; background: var(--accent); color: var(--background); border-radius: 50%; font-size: 19px; }
 .theme-switch { border: 1px solid var(--border); min-height: 44px; }
 .theme-switch:hover { background: var(--surface); }
 .hero-grid { width: 100%; }
@@ -171,7 +170,6 @@ button { cursor: pointer; }
 .photo-trigger { position: relative; display: block; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: var(--background); }
 .photo-trigger:focus-visible { outline-offset: -5px; outline-width: 3px; }
 .photo-view-label { position: absolute; right: .75rem; bottom: .75rem; display: inline-flex; align-items: center; gap: .75rem; min-height: 36px; padding: .4rem .75rem; background: var(--background); color: var(--foreground); border: 1px solid var(--border); border-radius: 999px; font-size: .6875rem; }
-.photo-view-label span { font-size: 1rem; }
 .photo-dialog { width: calc(100vw - 32px); max-width: 1100px; max-height: calc(100svh - 32px); padding: 0; margin: auto; border: 1px solid var(--border); border-radius: 12px; color: var(--foreground); background: var(--background); }
 .photo-dialog::backdrop { background: rgb(0 0 0 / .75); }
 .photo-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 1rem; border-bottom: 1px solid var(--border); }
@@ -252,7 +250,6 @@ body:has(.photo-dialog[open]) { overflow: hidden; }
 .contact-panel { padding: clamp(1.5rem, 4vw, 3.5rem); border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
 .contact-panel .section-heading { max-width: 52rem; margin-bottom: 1.5rem; }
 .contact-intro { display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; }
-.contact-symbol { display: none; flex-shrink: 0; place-items: center; width: 80px; height: 80px; border: 1px solid var(--accent); border-radius: 50%; color: var(--accent); font-size: 2.75rem; line-height: 1; }
 .contact-invitation { max-width: 36rem; color: var(--muted); font-size: 1.125rem; line-height: 1.8; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; }
 .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
@@ -269,7 +266,6 @@ body:has(.photo-dialog[open]) { overflow: hidden; }
 .email-copy button:hover, .email-copy button:focus-visible { border-color: var(--accent); }
 .email-copy-status { min-height: 1.7em; margin-top: .5rem; }
 .email-copy input { display: block; width: min(100%, 24rem); margin-top: .5rem; padding: .75rem; border: 1px solid var(--border); border-radius: 6px; background: var(--background); color: var(--foreground); font-size: .875rem; }
-@media (min-width: 64rem) { .contact-symbol { display: grid; } }
 @media (prefers-reduced-motion: no-preference) {
   .contact-link-arrow { transition: transform 180ms ease; }
   .contact-links a:hover .contact-link-arrow, .contact-links a:focus-visible .contact-link-arrow { transform: translate(2px, -2px); }
