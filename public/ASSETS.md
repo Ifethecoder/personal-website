@@ -1,29 +1,35 @@
-# Personal media
+# Personal media inventory
 
-Asset audit: this repository contained no app files or personal photos/videos at setup. No stock images or invented media paths have been added. The empty portrait frame is layout, not an image request.
+Inspected all 10 images and sampled the single video. The existing folders are already logical; all originals and filenames are preserved. `src/content/assets.ts` is the central asset map. Images use static imports, so Next.js checks paths at build time and supplies dimensions. The portrait also includes a tiny blur thumbnail derived from its original, since automatic blur generation skips uppercase JPG extensions. Components should select media from this map rather than duplicate paths.
 
-## Directories and missing media
+Alt text describes visible content only. Captions are `null` throughout; event dates, roles, outcomes, names, and stories still need the owner's confirmation. Keys derived from filenames are organizational identifiers, not verified biographical claims.
 
-| Directory | Media still needed | Status |
-| --- | --- | --- |
-| `images/profile/` | Your primary portrait for the hero | Required to complete the portrait |
-| `images/experience/` | Work, project, or team photos you choose to share | Optional; future section |
-| `images/hackathons/` | Event, team, or demo photos | Optional; future section |
-| `images/community/` | Community and volunteering photos | Optional; future section |
-| `images/highlights/` | Selected personal moments | Optional; future section |
-| `images/certifications/` | Certificate images, if you want to display them | Optional; future section |
-| `images/soccer/` | Your soccer photos | Optional; future section |
-| `videos/` | Short personal clips and poster images | Optional; no video player yet |
+| Original path under `public/` | Stored pixels | Approx. size | Selection |
+| --- | --- | --- | --- |
+| `images/profile/profilePic.JPG` | 2432 × 3648 | 1.23 MB | Hero portrait |
+| `images/experience/Amazon'25.jpeg` | 5712 × 4284 | 8.03 MB | Reserved |
+| `images/experience/Amazon'26.jpeg` | 5712 × 4284 | 3.36 MB | Reserved |
+| `images/hackathons/talkToUsersHackathon.JPG` | 1200 × 1600 | 0.26 MB | Reserved |
+| `images/hackathons/treehacks.jpeg` | 5712 × 4284 | 4.01 MB | Reserved |
+| `images/community/colorstack_minerva.JPG` | 6000 × 4000 | 13.24 MB | Reserved |
+| `images/community/colorstack_minerva2.jpeg` | 1920 × 1000 | 0.14 MB | Reserved |
+| `images/highlights/photoWithSamAltman.jpeg` | 5712 × 4284 | 4.20 MB | Reserved |
+| `images/certifications/aws-certified-ai-practitioner.png` | 600 × 600 | 0.05 MB | Reserved |
+| `images/soccer/soccer_image.jpeg` | 5712 × 4284 | 5.59 MB | Reserved |
+| `videos/soccer_video.mov` | 1920 × 1080 | 12.61 MB | Reserved; 7.6 seconds, H.264 with audio |
 
-Keep the original filenames or choose your own meaningful names. No filename is prescribed here. `.gitkeep` files track otherwise empty folders.
+Pixel sizes above are stored dimensions; several photos carry orientation metadata. Next.js optimizes images with that metadata. The sampled video appears sideways; correct orientation in a browser-ready derivative before displaying it. No original was overwritten, renamed, or recompressed.
 
-## Connect the portrait
+## Current selection and loading
 
-1. Add a real portrait under `public/images/profile/`. A portrait or square crop with room around the face works best; aim for at least 1000 pixels on the long edge and a compressed WebP, AVIF, or JPEG.
-2. In `src/content/portfolio.ts`, replace `null` with an object whose `src` is the actual public URL of that file and whose `alt` describes your portrait. Public URLs omit the `public` prefix. Use only the file's exact existing name, including capitalization.
-3. The hero already renders configured media through `next/image` with responsive sizes, an aspect-ratio frame, and preload. Adjust `object-position` in the hero if your portrait needs different framing.
-4. Update the generic hero wording and metadata with your preferred name, introduction, and visual identity when ready.
+Only the portrait is selected for the homepage. The tactical SVG remains the secondary graphic; the hero is not a gallery. All other photos, the badge, and the video stay mapped for later sections and are not requested by the page.
 
-Images in later sections should also use `next/image`, with intrinsic dimensions or a sized `fill` container, meaningful alt text (empty for purely decorative images), and accurate `sizes`. Only the hero portrait should be preloaded.
+The hero uses `next/image`, a responsive `sizes` value, preload for the primary image, a static-import blur placeholder, and an intentional portrait crop. Next.js serves optimized responsive image variants; it does not require downloading the full original photo for the hero.
 
-Before committing personal media, remove location metadata and confirm that you want it publicly accessible: all files in `public/` are served directly. For future clips, use compact MP4/WebM files, a real poster image, controls, and `preload="none"` or `"metadata"`; avoid autoplaying large videos. Reduced-motion preferences should also disable any future autoplay.
+For future photos, use `next/image` with intrinsic dimensions or a sized `fill` container, the mapped alt text, and an accurate `sizes` value. Leave secondary photos lazy-loaded. Use `object-contain` for the certification badge and screenshots so text is not cropped.
+
+## Video policy and next steps
+
+There is no video player or video preload on the current homepage. Before using the MOV, create an orientation-corrected, compressed MP4/WebM derivative and a real poster frame while retaining the original. A future player should use controls, `playsInline`, `preload="none"`, and no autoplay. If a later design calls for autoplay, it must be muted and disabled for reduced motion. Add captions/transcription if the chosen audio contains meaningful speech.
+
+Provide captions and context for future photo sections. The community call screenshot includes participant details; review those before selecting it for display. Several large originals contain location metadata; consider metadata-cleaned web derivatives before public use. Files under `public/` remain directly accessible even when no component renders them.

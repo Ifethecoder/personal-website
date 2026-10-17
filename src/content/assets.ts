@@ -29,12 +29,18 @@ type AssetLibrary = {
 };
 
 // Static imports validate image filenames at build time and provide dimensions
-// and blur data. Import this server-side; pass only selected media to clients.
+// and image metadata. Import this server-side; pass only selected media to clients.
 // Alt text describes visible content; null captions await the owner's context.
 export const assets = {
   images: {
     profile: {
-      portrait: { src: profile, alt: "Portrait of me smiling against a coral background", caption: null },
+      portrait: {
+        // Next's automatic blur generation skips uppercase JPG extensions.
+        // This tiny thumbnail comes from the original portrait, which is retained.
+        src: { ...profile, blurDataURL: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAMAAgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAHRAAAgEEAwAAAAAAAAAAAAAAAAECAwQRIRIiMf/EABUBAQEAAAAAAAAAAAAAAAAAAAIE/8QAGBEBAQADAAAAAAAAAAAAAAAAAQAEE0H/2gAMAwEAAhEDEQA/AJ0LuEr2UXWXF6SzrwGEn0TANRUGSnL/2Q==" },
+        alt: "Portrait of me smiling against a coral background",
+        caption: null,
+      },
     },
     experience: {
       amazon2025: { src: amazon2025, alt: "A person standing beside an Amazon sign outside an office building", caption: null },

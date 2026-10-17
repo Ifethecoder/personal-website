@@ -23,9 +23,10 @@ npm start
 
 - `src/app/`: layout, metadata, page, shared color tokens, and responsive styles.
 - `src/components/`: hero, theme switcher, and decorative tactical passing graphic.
-- `src/content/portfolio.ts`: the portrait configuration, currently `null` until a real photo exists.
+- `src/content/assets.ts`: the complete typed image/video library with verified paths and visual alt text.
+- `src/content/portfolio.ts`: the selected homepage portrait from that library.
 - `public/images/`: profile, experience, hackathons, community, highlights, certifications, and soccer.
-- `public/videos/`: reserved for short personal clips.
+- `public/videos/`: the original soccer MOV, reserved for a future player.
 - [Asset guide](public/ASSETS.md): audit, missing images, and integration instructions.
 
 ## Visual foundation
@@ -42,6 +43,6 @@ The decorative SVG uses a single CSS transform animation, no animation dependenc
 - Cycle all themes, reload, and change the system appearance while System is selected.
 - Pause/resume the passing graphic, then enable the OS/browser reduced-motion preference and verify it stays static.
 - Navigate with the keyboard and verify focus visibility, skip link, theme button, and pause control.
-- Add a real portrait using the asset guide; verify cropping, alternative text, and responsive loading.
+- Verify the real portrait crop, alternative text, blur placeholder, and responsive loading. Other media stays reserved for future sections.
 
 Development and production scripts use Next.js’s Webpack option because Turbopack’s PostCSS worker could not bind its process port in this environment.

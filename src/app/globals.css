@@ -59,13 +59,6 @@ button { cursor: pointer; }
 .hero-title span { color: var(--accent); font-style: italic; }
 .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 .portrait-frame { aspect-ratio: 5 / 4; background: var(--surface); border: 1px solid var(--border); border-radius: 120px 120px 6px 6px; }
-.portrait-empty { background-image: radial-gradient(var(--border) .8px, transparent .8px); background-size: 18px 18px; }
-.portrait-label { font: italic clamp(1.5rem, 4vw, 2rem) Georgia, serif; color: var(--muted); }
-.portrait-corner { position: absolute; width: 22px; height: 22px; border-color: var(--pitch); opacity: .6; }
-.corner-top { top: 26%; left: 18%; border-top: 1px solid; border-left: 1px solid; }
-.corner-bottom { bottom: 26%; right: 18%; border-bottom: 1px solid; border-right: 1px solid; }
-.portrait-caption { color: var(--muted); }
-.portrait-frame:has(img) .portrait-caption { background: var(--background); padding: 8px 12px; border-radius: 4px; }
 .passing-card { margin: 16px 0 0 auto; width: min(100%, 360px); border: 1px solid var(--border); border-radius: 6px; }
 .pitch { display: block; width: 100%; height: auto; color: var(--pitch); }
 .pitch-lines { opacity: .32; }

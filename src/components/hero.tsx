@@ -19,26 +19,15 @@ export function Hero() {
       </div>
       <div className="visual-column mx-auto w-full max-w-md lg:max-w-none">
         <figure className="portrait-frame relative overflow-hidden">
-          {portrait ? (
-            <Image
-              src={portrait.src}
-              alt={portrait.alt}
-              fill
-              sizes="(min-width: 1280px) 480px, (min-width: 1024px) 42vw, (min-width: 512px) 448px, calc(100vw - 48px)"
-              preload
-              className="object-cover"
-            />
-          ) : (
-            <div className="portrait-empty absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center">
-              <span className="portrait-corner corner-top" aria-hidden="true" />
-              <span className="portrait-corner corner-bottom" aria-hidden="true" />
-              <span className="eyebrow">The person behind the work</span>
-              <span className="portrait-label">Portrait to come.</span>
-            </div>
-          )}
-          <figcaption className="portrait-caption absolute bottom-5 left-6 right-6 flex justify-between gap-4 text-xs">
-            <span>Beyond the screen</span><span aria-hidden="true">01 / 01</span>
-          </figcaption>
+          <Image
+            src={portrait.src}
+            alt={portrait.alt}
+            fill
+            sizes="(min-width: 1280px) 511px, (min-width: 1024px) calc(47.62vw - 99.05px), (min-width: 496px) 448px, calc(100vw - 48px)"
+            preload
+            placeholder="blur"
+            className="object-cover object-[50%_15%]"
+          />
         </figure>
         <PassingGraphic />
       </div>

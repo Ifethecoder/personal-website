@@ -1,10 +1,5 @@
-import type { StaticImageData } from "next/image";
+import { assets } from "./assets";
 
-export type PortfolioImage = {
-  src: string | StaticImageData;
-  alt: string;
-};
-
-// Intentionally empty: no personal media was present during the asset audit.
-// Set this only after adding a real portrait. See public/ASSETS.md.
-export const portrait: PortfolioImage | null = null;
+// Homepage selection stays separate from the full library.
+export const portrait = assets.images.profile.portrait;
+export type { PortfolioImage } from "./assets";
