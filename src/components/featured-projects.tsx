@@ -6,7 +6,7 @@ import { SectionHeading } from "./section-heading";
 export function FeaturedProjects() {
   return (
     <section id="projects" className="content-section" aria-labelledby="projects-heading" tabIndex={-1}>
-      <SectionHeading id="projects-heading" number="02" label="Featured projects" title="Things I've built." />
+      <SectionHeading id="projects-heading" number="03" label="Featured projects" title="Things I've built." />
       <div className="project-list">
         {featuredProjects.map((project, index) => (
           <Reveal key={project.id}>

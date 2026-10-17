@@ -1,7 +1,7 @@
 const sectionLinks = [
   { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
   { href: "#beyond", label: "Beyond" },
   { href: "#contact", label: "Contact" },
 ] as const;
