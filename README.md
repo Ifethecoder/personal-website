@@ -37,7 +37,7 @@ npm start
 - `src/components/experience.tsx` and `experience-entry.tsx`: a static, reusable timeline with a lazily loaded photo for each internship. Each frame reserves the photo’s natural orientation.
 - `src/content/projects.ts`: typed project descriptions, events, tags, image selections, and highlights. Add future projects here; no speculative demo or repository URLs are present.
 - `public/images/`: profile, experience, hackathons, community, highlights, certifications, and soccer.
-- `public/videos/`: the silent web MP4 used by the player and the preserved original MOV.
+- `public/videos/`: the silent web MP4 used by the player.
 - [Asset guide](public/ASSETS.md): exact filenames, sizes, image selections, and photo context still needing confirmation.
 
 ## Visual foundation
@@ -52,7 +52,7 @@ Scroll reveals use IntersectionObserver without an animation library. Server-ren
 
 Project images use `object-contain` in reserved-size frames to preserve complete photographs, including orientation metadata. Only the hero portrait is preloaded; other photos are lazy-loaded. FireSight uses the owner-confirmed YC hackathon photo; the Talk to Users photo remains preserved in the asset library.
 
-The soccer card keeps its photo and offers a silent, upright, 1280 × 720 MP4 with a poster inside a native disclosure. Video uses native controls and `preload="none"`, with no autoplay. The 319 KB derivative replaces no original media; the original MOV and audio remain preserved. Reproduction commands are in the asset guide.
+The soccer card keeps its photo and offers a silent, upright, 1280 × 720 MP4 with a poster inside a native disclosure. Video uses native controls and `preload="none"`, with no autoplay. The unused original MOV and community-call screenshot have been removed; the 319 KB web video and its poster remain. The asset guide records the retained media.
 
 The header links to About, Projects, Experience, Beyond, and Contact using native anchors. Every navigation target is programmatically focusable, so keyboard activation moves focus into its section. CSS smooth scrolling applies only when reduced motion is not requested; no scrolling dependency is used.
 

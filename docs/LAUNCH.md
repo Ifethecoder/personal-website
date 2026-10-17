@@ -15,7 +15,7 @@ The Contact section currently displays a short “Contact details coming soon”
 
 ## Media
 
-- The original photos and MOV remain untouched.
+- Displayed photographs remain untouched. The unused community-call screenshot and original MOV were removed; the optimized MP4 and poster are retained.
 - The soccer web derivative is upright, silent, about 319 KB, and user-controlled; its poster is about 83 KB. The player does not request the MP4 before Play and pauses on collapse.
 - Udacity AI Programming Nanodegree currently uses text because no certificate image exists. Adding an image is optional.
 

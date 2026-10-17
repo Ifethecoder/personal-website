@@ -6,7 +6,6 @@ import talkToUsers from "../../public/images/hackathons/talkToUsersHackathon.JPG
 import treehacks from "../../public/images/hackathons/treehacks.jpeg";
 import ycVoiceAgents from "../../public/images/hackathons/yc_hackathon.jpeg";
 import colorstackMinerva from "../../public/images/community/colorstack_minerva.JPG";
-import colorstackMinervaCall from "../../public/images/community/colorstack_minerva2.jpeg";
 import personalHighlight from "../../public/images/highlights/photoWithSamAltman.jpeg";
 import awsAiPractitioner from "../../public/images/certifications/aws-certified-ai-practitioner.png";
 import soccerTeam from "../../public/images/soccer/soccer_image.jpeg";
@@ -55,7 +54,6 @@ export const assets = {
     },
     community: {
       colorstackMinerva: { src: colorstackMinerva, alt: "Two people presenting beside a screen reading Your profile is your pitch", caption: null },
-      colorstackMinervaCall: { src: colorstackMinervaCall, alt: "A video call with a shared coding exercise and participant tiles", caption: null },
     },
     highlights: {
       personalHighlight: { src: personalHighlight, alt: "Ifeoluwa with Sam Altman at the OpenAI Student Collective Builder Party", caption: null },
@@ -75,13 +73,6 @@ export const assets = {
       durationSeconds: 7.6,
       hasAudio: false,
       description: "Silent, 8-second clip: a player moves across a floodlit soccer pitch, with a ball and goal in view.",
-    },
-    soccer: {
-      src: "/videos/soccer_video.mov",
-      mimeType: "video/quicktime",
-      durationSeconds: 7.6,
-      hasAudio: true,
-      description: null,
     },
   },
 } as const satisfies AssetLibrary;
