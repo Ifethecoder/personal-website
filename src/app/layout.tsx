@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: site.title,
     description: site.description,
-    siteName: "Ifeoluwa — Portfolio",
+    siteName: `${site.name} — Portfolio`,
     type: "website",
     ...(origin ? { url: origin } : {}),
   },

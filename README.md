@@ -1,6 +1,6 @@
-# Personal website foundation
+# Personal portfolio
 
-Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at inspection. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), an Amazon internship timeline, and a Beyond the Code photo journal. Content comes from the owner's brief and existing personal media. Beyond covers ColorStack Minerva leadership, hackathons, the OpenAI event, soccer, and the two supplied certifications. The final Contact section is ready for owner-confirmed contact values; see [launch readiness](docs/LAUNCH.md).
+Next.js App Router, TypeScript, and Tailwind CSS. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), an Amazon internship timeline, and a Beyond the Code photo journal. Content comes from the owner's brief and existing personal media. Beyond covers ColorStack Minerva leadership, hackathons, the OpenAI event, soccer, and the two supplied certifications. Contact and the footer use the owner-verified email, GitHub, and LinkedIn profiles. No résumé link is displayed. See [launch readiness](docs/LAUNCH.md) for the final audit.
 
 ## Development
 
@@ -37,7 +37,7 @@ npm start
 - `src/components/experience.tsx` and `experience-entry.tsx`: a static, reusable timeline with a lazily loaded photo for each internship. Each frame reserves the photo’s natural orientation.
 - `src/content/projects.ts`: typed project descriptions, events, tags, image selections, and highlights. Add future projects here; no speculative demo or repository URLs are present.
 - `public/images/`: profile, experience, hackathons, community, highlights, certifications, and soccer.
-- `public/videos/`: the original soccer MOV, reserved for a future player.
+- `public/videos/`: the silent web MP4 used by the player and the preserved original MOV.
 - [Asset guide](public/ASSETS.md): exact filenames, sizes, image selections, and photo context still needing confirmation.
 
 ## Visual foundation
@@ -56,7 +56,7 @@ The soccer card keeps its photo and offers a silent, upright, 1280 × 720 MP4 wi
 
 The header links to About, Projects, Experience, Beyond, and Contact using native anchors. Every navigation target is programmatically focusable, so keyboard activation moves focus into its section. CSS smooth scrolling applies only when reduced motion is not requested; no scrolling dependency is used.
 
-Before deployment, set the real `NEXT_PUBLIC_SITE_URL` so canonical and social-image URLs use the correct origin. No production domain is assumed; local builds without it use Next.js’s development fallback for the social image. See [launch readiness](docs/LAUNCH.md) for missing content and configuration.
+Before deployment, set the real `NEXT_PUBLIC_SITE_URL` so canonical and social-image URLs use the correct origin. No production domain is assumed; local builds without it use Next.js’s development fallback for the social image. See [launch readiness](docs/LAUNCH.md) for the publication checklist.
 
 ## Manual browser checks
 
@@ -69,3 +69,13 @@ Before deployment, set the real `NEXT_PUBLIC_SITE_URL` so canonical and social-i
 - Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me and two hackathon photos appear in Projects; both Amazon photos appear beside their matching Experience entries; remaining media stays reserved.
 
 Development and production scripts use Next.js’s Webpack option because Turbopack’s PostCSS worker could not bind its process port in this environment.
+
+## Vercel deployment (when authorized)
+
+1. Push the reviewed commits only when approved, then import the GitHub repository into Vercel. Use the Next.js framework preset, repository root, Node.js 22.x, `npm ci`, and `npm run build`; keep the default output directory. No backend services or secrets are required.
+2. If the final domain is unknown, leave `NEXT_PUBLIC_SITE_URL` unset for the first deployment. It builds successfully, but social-image URLs use the localhost fallback and canonical/page Open Graph URLs are omitted. Treat this first deployment as a configuration check before sharing it.
+3. After Vercel assigns the stable production `.vercel.app` domain, copy its full HTTPS origin from the project's Domains page. In **Settings → Environment Variables**, add `NEXT_PUBLIC_SITE_URL` for **Production** with that exact origin. Do not use a deployment-specific preview URL or include a path, query, or fragment.
+4. Redeploy the production deployment so the build reads the new value. Environment changes do not update existing deployments. For Preview deployments, optionally use the same stable production origin so previews do not advertise temporary canonical URLs.
+5. Verify the page's canonical and `og:url` match the assigned origin; `og:image` and `twitter:image` must use that origin and return the generated PNG. Check `/opengraph-image`, `/icon.svg`, contact links, navigation, and soccer playback on the live site.
+
+`.env.example` documents the variable; local `.env.local` files stay untracked. A malformed configured value fails clearly rather than emitting incorrect metadata. No production domain is hardcoded. See [Vercel environment variable documentation](https://vercel.com/docs/environment-variables/managing-environment-variables) for configuration and redeployment behavior.
