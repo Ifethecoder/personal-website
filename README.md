@@ -1,6 +1,6 @@
 # Personal website foundation
 
-Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at inspection. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), and an Amazon internship timeline. Content comes from the owner's brief and existing personal media. Community, Certifications, Beyond Code, and Contact sections remain outside the current sprint.
+Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at inspection. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), an Amazon internship timeline, and a Beyond the Code photo journal. Content comes from the owner's brief and existing personal media. Beyond covers ColorStack Minerva leadership, hackathons, the OpenAI event, and soccer. Contact remains outside the current sprint.
 
 ## Development
 
@@ -27,6 +27,8 @@ npm start
 - `src/content/assets.ts`: the complete typed image/video library with verified paths and visual alt text.
 - `src/content/portfolio.ts`: the selected homepage portrait from that library.
 - `src/content/about.ts`: the supplied biography and interests.
+- `src/content/beyond.ts`: owner-supplied personal stories and selections from the asset library.
+- `src/components/photo-viewer.tsx`: native dialog with on-demand larger images, Escape handling, focus restoration, and a real-image link fallback.
 - `src/content/experience.ts`: latest-first internship descriptions, approved technologies, and scoped impact metrics.
 - `src/components/experience.tsx` and `experience-entry.tsx`: a static, reusable timeline with a lazily loaded photo for each internship. Each frame reserves the photo’s natural orientation.
 - `src/content/projects.ts`: typed project descriptions, events, tags, image selections, and highlights. Add future projects here; no speculative demo or repository URLs are present.
@@ -46,7 +48,7 @@ Scroll reveals use IntersectionObserver without an animation library. Server-ren
 
 Project images use `object-contain` in reserved-size frames to preserve complete photographs, including orientation metadata. Only the hero portrait is preloaded; other photos are lazy-loaded. FireSight uses the owner-confirmed YC hackathon photo; the Talk to Users photo remains preserved in the asset library.
 
-The header links to About, Projects, and Experience using native anchors. Experience is a focusable section target so keyboard activation moves focus to the timeline. Scrolling uses the browser default without an added animation or JavaScript dependency.
+The header links to About, Projects, Experience, and Beyond using native anchors. Experience is a focusable section target so keyboard activation moves focus to the timeline. Scrolling uses the browser default without an added animation or JavaScript dependency.
 
 ## Manual browser checks
 
@@ -54,6 +56,7 @@ The header links to About, Projects, and Experience using native anchors. Experi
 - Cycle all themes, reload, and change the system appearance while System is selected.
 - Pause/resume the passing graphic, then enable the OS/browser reduced-motion preference and verify it stays static.
 - Navigate with the keyboard and verify focus visibility, skip link, theme button, pause control, and section navigation. Activate Experience and check the URL fragment, scroll position, and section focus.
+- Open Beyond photos with the keyboard; verify full images, focus containment, Escape/Close, and focus restoration. Disable JavaScript and verify the image links still work.
 - Scroll through both projects; then enable reduced motion or disable JavaScript and verify all project content remains visible.
 - Verify the full portrait stays visible at mobile and desktop widths, with alternative text, blur placeholder, and responsive loading. The soccer group photo appears in About Me and two hackathon photos appear in Projects; both Amazon photos appear beside their matching Experience entries; remaining media stays reserved.
 

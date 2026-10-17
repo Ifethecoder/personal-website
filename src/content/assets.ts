@@ -57,7 +57,7 @@ export const assets = {
       colorstackMinervaCall: { src: colorstackMinervaCall, alt: "A video call with a shared coding exercise and participant tiles", caption: null },
     },
     highlights: {
-      personalHighlight: { src: personalHighlight, alt: "Two people standing together indoors", caption: null },
+      personalHighlight: { src: personalHighlight, alt: "Ifeoluwa with Sam Altman at the OpenAI Student Collective Builder Party", caption: null },
     },
     certifications: {
       awsAiPractitioner: { src: awsAiPractitioner, alt: "AWS Certified AI Practitioner foundational badge", caption: null },

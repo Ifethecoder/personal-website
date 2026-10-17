@@ -162,3 +162,35 @@ button { cursor: pointer; }
 .site-nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1.5rem; }
 .site-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); font-size: .8125rem; line-height: 1.6; }
 .site-nav a:hover, .site-nav a:focus-visible { color: var(--accent); text-decoration: underline; text-underline-offset: .3em; }
+
+/* A personal photo journal, distinct from project showcases and the timeline. */
+.beyond-grid { display: grid; gap: 1.5rem; }
+.beyond-card { min-width: 0; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+.beyond-card-copy { padding: clamp(1.25rem, 3vw, 2rem); }
+.beyond-card-copy h3 { margin-top: .75rem; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.15; letter-spacing: -.035em; text-wrap: balance; }
+.beyond-description { margin-top: 1rem; color: var(--muted); font-size: .9375rem; line-height: 1.85; }
+.beyond-caption { padding: .75rem 1.25rem; color: var(--muted); font-size: .6875rem; line-height: 1.6; border-bottom: 1px solid var(--border); }
+.photo-trigger { position: relative; display: block; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: var(--background); }
+.photo-trigger:focus-visible { outline-offset: -5px; outline-width: 3px; }
+.photo-view-label { position: absolute; right: .75rem; bottom: .75rem; display: inline-flex; align-items: center; gap: .75rem; min-height: 36px; padding: .4rem .75rem; background: var(--background); color: var(--foreground); border: 1px solid var(--border); border-radius: 999px; font-size: .6875rem; }
+.photo-view-label span { font-size: 1rem; }
+.photo-dialog { width: calc(100vw - 32px); max-width: 1100px; max-height: calc(100svh - 32px); padding: 0; margin: auto; border: 1px solid var(--border); border-radius: 12px; color: var(--foreground); background: var(--background); }
+.photo-dialog::backdrop { background: rgb(0 0 0 / .75); }
+.photo-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 1rem; border-bottom: 1px solid var(--border); }
+.photo-dialog-header h4 { font-size: .8125rem; line-height: 1.6; }
+.photo-dialog-header button { flex-shrink: 0; display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; padding: .5rem .75rem; border: 1px solid var(--border); border-radius: 999px; font-size: .75rem; }
+.photo-dialog-header button span { font-size: 1.125rem; }
+.photo-dialog-image { position: relative; width: 100%; height: min(72svh, 720px); }
+body:has(.photo-dialog[open]) { overflow: hidden; }
+@media (min-width: 48rem) {
+  .beyond-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 64rem) {
+  .beyond-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .beyond-card--wide { grid-column: span 7; }
+  .beyond-card--narrow { grid-column: span 5; }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .photo-trigger img { transition: transform 300ms ease; }
+  .photo-trigger:hover img { transform: scale(1.025); }
+}
