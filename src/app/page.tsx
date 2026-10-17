@@ -6,6 +6,8 @@ import { FeaturedProjects } from "@/components/featured-projects";
 import { About } from "@/components/about";
 import { Hero } from "@/components/hero";
 import { ThemeSwitcher } from "@/components/theme-switcher";
+import { contactDetails } from "@/content/contact";
+import { site } from "@/content/site";
 
 export default function Home() {
   return (
@@ -26,9 +28,13 @@ export default function Home() {
         <BeyondCode />
         <Contact />
       </main>
-      <footer className="site-footer flex flex-wrap justify-between gap-3 py-6 text-xs muted">
-        <p>Ifeoluwa · Curiosity in motion.</p>
-        <p>Build · Connect · Play</p>
+      <footer className="site-footer flex flex-wrap items-center justify-between gap-3 py-6 text-xs muted">
+        <p>{site.name} · Curiosity in motion.</p>
+        <nav aria-label="Footer contact links" className="footer-links">
+          {contactDetails.email && <a href={`mailto:${contactDetails.email}`}>Email</a>}
+          {contactDetails.github && <a href={contactDetails.github}>GitHub</a>}
+          {contactDetails.linkedin && <a href={contactDetails.linkedin}>LinkedIn</a>}
+        </nav>
       </footer>
     </div>
   );

@@ -1,7 +1,7 @@
 export const site = {
-  name: "Ifeoluwa",
-  title: "Ifeoluwa — Software Engineering, AI & Community",
-  description: "Ifeoluwa is a Minerva University Computer Science and Business student, two-time Amazon SDE intern, and builder of FireSight and Yooni.",
+  name: "Ifeoluwa Oyetimehin",
+  title: "Ifeoluwa Oyetimehin — Software Engineering, AI & Community",
+  description: "Ifeoluwa Oyetimehin is a Minerva University Computer Science and Business student, two-time Amazon SDE intern, and builder of FireSight and Yooni.",
 };
 
 export function getSiteOrigin(): URL | undefined {

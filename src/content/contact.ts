@@ -5,17 +5,15 @@ export type ContactDetails = {
   resume: string | null;
 };
 
-// No public contact records or résumé were present in the repository.
-// Add only owner-confirmed values. A local résumé URL must name a real file.
+// Verified by the owner. Keep the résumé hidden until an actual file is supplied.
 export const contactDetails: ContactDetails = {
-  email: null,
-  github: null,
-  linkedin: null,
+  email: "ifeoluwa@uni.minerva.edu",
+  github: "https://github.com/Ifethecoder",
+  linkedin: "https://www.linkedin.com/in/ifeoluwa-oyetimehin",
   resume: null,
 };
 
 export const contactCopy = {
   heading: "Have something in mind? Let's build it.",
   invitation: "Have a project, an idea, or a good question? I'd love to connect, exchange ideas, and explore a collaboration.",
-  pending: "Contact details coming soon.",
 };

@@ -17,7 +17,7 @@ export function Contact() {
           <span className="contact-symbol" aria-hidden="true">↗</span>
         </div>
         <p className="contact-invitation">{contactCopy.invitation}</p>
-        {links.length ? (
+        {links.length > 0 && (
           <ul className="contact-links" aria-label="Ways to connect">
             {links.map((link) => (
               <li key={link.label}>
@@ -28,7 +28,7 @@ export function Contact() {
               </li>
             ))}
           </ul>
-        ) : <p className="contact-pending">{contactCopy.pending}</p>}
+        )}
       </div>
     </section>
   );
