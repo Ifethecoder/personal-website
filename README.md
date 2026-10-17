@@ -1,6 +1,6 @@
 # Personal website foundation
 
-Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at inspection. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), an Amazon internship timeline, and a Beyond the Code photo journal. Content comes from the owner's brief and existing personal media. Beyond covers ColorStack Minerva leadership, hackathons, the OpenAI event, and soccer. Contact remains outside the current sprint.
+Next.js App Router, TypeScript, and Tailwind CSS. This repository was empty at inspection. The homepage includes the hero, About Me, exactly two Featured Projects (FireSight and Yooni), an Amazon internship timeline, and a Beyond the Code photo journal. Content comes from the owner's brief and existing personal media. Beyond covers ColorStack Minerva leadership, hackathons, the OpenAI event, soccer, and the two supplied certifications. Contact remains outside the current sprint.
 
 ## Development
 
@@ -28,6 +28,7 @@ npm start
 - `src/content/portfolio.ts`: the selected homepage portrait from that library.
 - `src/content/about.ts`: the supplied biography and interests.
 - `src/content/beyond.ts`: owner-supplied personal stories and selections from the asset library.
+- `src/content/certifications.ts`: supplied credential names and the existing AWS badge. The Udacity credential is text-only until an actual image is added. No verification links are invented.
 - `src/components/photo-viewer.tsx`: native dialog with on-demand larger images, Escape handling, focus restoration, and a real-image link fallback.
 - `src/content/experience.ts`: latest-first internship descriptions, approved technologies, and scoped impact metrics.
 - `src/components/experience.tsx` and `experience-entry.tsx`: a static, reusable timeline with a lazily loaded photo for each internship. Each frame reserves the photo’s natural orientation.
@@ -47,6 +48,8 @@ The decorative SVG uses a single CSS transform animation, no animation dependenc
 Scroll reveals use IntersectionObserver without an animation library. Server-rendered content stays visible without JavaScript or observer support. Elements below the viewport reveal once, and reduced motion disables entrance and hover transforms. Informational tags and project cards have no click actions or artificial tab stops; the theme and animation controls remain keyboard accessible.
 
 Project images use `object-contain` in reserved-size frames to preserve complete photographs, including orientation metadata. Only the hero portrait is preloaded; other photos are lazy-loaded. FireSight uses the owner-confirmed YC hackathon photo; the Talk to Users photo remains preserved in the asset library.
+
+The original soccer MOV still needs an upright, web-compressed derivative and poster. Beyond uses the existing soccer photo, with no video download or autoplay. Originals are preserved.
 
 The header links to About, Projects, Experience, and Beyond using native anchors. Experience is a focusable section target so keyboard activation moves focus to the timeline. Scrolling uses the browser default without an added animation or JavaScript dependency.
 

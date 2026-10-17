@@ -194,3 +194,14 @@ body:has(.photo-dialog[open]) { overflow: hidden; }
   .photo-trigger img { transition: transform 300ms ease; }
   .photo-trigger:hover img { transform: scale(1.025); }
 }
+
+.beyond-certifications { margin-top: 2rem; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--border); border-radius: 12px; }
+.certifications-title { margin-top: .75rem; font-family: Georgia, "Times New Roman", serif; font-size: 2rem; line-height: 1.2; letter-spacing: -.035em; }
+.credential-list { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.credential-card { display: flex; align-items: center; gap: 1rem; min-width: 0; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+.credential-badge, .credential-monogram { flex-shrink: 0; width: 64px; height: 64px; object-fit: contain; }
+.credential-monogram { display: grid; place-items: center; border: 1px solid var(--border); border-radius: 8px; background: var(--background); color: var(--accent); font: italic 1.75rem Georgia, serif; }
+.credential-name { min-width: 0; font-size: 1rem; line-height: 1.6; }
+@media (min-width: 48rem) {
+  .credential-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

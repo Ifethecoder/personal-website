@@ -1,4 +1,5 @@
 import { beyondStories } from "@/content/beyond";
+import { Certifications } from "./certifications";
 import { BeyondStory } from "./beyond-story";
 import { SectionHeading } from "./section-heading";
 
@@ -9,6 +10,7 @@ export function BeyondCode() {
       <div className="beyond-grid">
         {beyondStories.map((story) => <BeyondStory key={story.id} story={story} />)}
       </div>
+      <Certifications />
     </section>
   );
 }
