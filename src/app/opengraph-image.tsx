@@ -14,7 +14,10 @@ export default function OpenGraphImage() {
         </svg>
         <span>{site.name} · Portfolio</span>
       </div>
-      <div style={{ display: "flex", marginTop: 74, fontSize: 86, lineHeight: 1.1, fontWeight: 700, letterSpacing: "-4px" }}>Curiosity in motion.</div>
+      <div style={{ display: "flex", flexDirection: "column", marginTop: 36, fontSize: 86, lineHeight: 1.1, fontWeight: 700, letterSpacing: "-4px" }}>
+        <span>Making things.</span>
+        <span>Making moves.</span>
+      </div>
       <div style={{ display: "flex", marginTop: 28, fontSize: 32, color: "#426647" }}>Software engineering · Voice AI · Community</div>
       <div style={{ display: "flex", marginTop: "auto", borderTop: "1px solid #d6d9ce", paddingTop: 28, fontSize: 23, color: "#606b61" }}>Minerva University · Computer Science &amp; Business</div>
     </div>,

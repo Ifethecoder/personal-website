@@ -1,56 +1,61 @@
 # Launch readiness
 
-No push or deployment is authorized by Sprint 5A. This document records missing publication inputs without inventing them.
+The homepage features are complete. This cleanup does not authorize a push, deployment, or Git history rewrite. The repository can be built for deployment; production-origin configuration and the manual checks below remain before public launch.
 
-## Contact content still needed
+## Verified identity and contact
 
-Set the owner-confirmed values in `src/content/contact.ts`:
+`src/content/site.ts` and `src/content/contact.ts` use the owner-confirmed details:
 
-- Public email address.
-- Public GitHub profile URL. The Git remote identifies a repository owner, but no explicit profile contact record is stored in the app.
-- Public LinkedIn profile URL.
-- Optional résumé: add the actual file under `public/` and use its exact public URL, or provide a real hosted résumé URL. Local files get a download link.
+- Name: Ifeoluwa Oyetimehin.
+- Email: `ifeoluwa@uni.minerva.edu` (`mailto:` links in Contact and the footer).
+- GitHub: https://github.com/Ifethecoder
+- LinkedIn: https://www.linkedin.com/in/ifeoluwa-oyetimehin
 
-Contact uses the verified email and profile links; email also provides a clipboard button and manual-copy fallback. Unset values produce no links, buttons, invented addresses, or empty `href` attributes. The section should have at least one real contact method before launch. No backend form is implemented.
+The résumé is intentionally omitted; there is no missing résumé link to fix. Contact offers a copy-email button, live confirmation, and manual-copy fallback. Email links depend on the visitor having a mail handler configured. No backend form or credential verification links are present. The HTTPS profile links open in the same tab; no new-tab security attributes are needed.
 
-## Media
+## Current implementation
 
-The hero passing animation was removed at the owner’s request. The soccer group photo appears once in About Me; Beyond the Code uses the user-controlled soccer video as its primary visual.
+- Homepage order: Hero, About Me, Experience, Featured Projects, Beyond the Code, Contact. All five section navigation links use native anchors, visible keyboard focus, and an active-section indicator.
+- The hero and footer retain “Building things. Making moves.” The requested social preview reads “Making things.” and “Making moves.” on two lines, with the existing typography and palette. The full-name title and description accurately describe the Minerva student, two Amazon internships, FireSight, and Yooni.
+- Dark is the default, including without JavaScript or storage access. Saved Light, Dark, and System preferences remain supported and persist when storage is available.
+- Beyond has four horizontal carousel slides: ColorStack Minerva, hackathons, the OpenAI event, and certifications. Native scrolling supports touch and no-JavaScript access; hydrated controls provide counts, Previous/Next, and keyboard Left/Right/Home/End. Photo lightboxes retain Escape handling, focus containment, and focus restoration.
+- The soccer bonus round sits below the carousel. Its continuous 650 ms SVG/CSS shot reveals the native video player and announces the goal without moving focus. Replay resets the ball, pauses/rewinds the video, closes highlights, and returns focus to the shot button. The native “Skip to highlights” disclosure also works without JavaScript. Reserved player space prevents a reveal layout jump.
+- Reduced motion completes the shot immediately and disables entrance/hover transforms. Hiding highlights, scrolling the player out of view, or hiding the browser tab pauses playback. There is no automatic carousel rotation or video autoplay.
+- Diagonal arrows remain only on Email me, GitHub, and LinkedIn. The favicon and social preview use a green circle motif.
 
-- Displayed photographs remain untouched. The unused community-call screenshot and original MOV were removed; the optimized MP4 and poster are retained.
-- The soccer web derivative is upright, silent, about 319 KB, and user-controlled; its poster is about 83 KB. The visible player does not request the MP4 before Play and offers native play/pause controls.
-- Udacity AI Programming Nanodegree uses the owner-supplied Udacity logo beside its title; no verification URL is invented.
+## Media and unresolved privacy/history findings
 
-## Production origin and metadata
+- The asset mapping is `src/content/assets.ts`; the inventory is [public/ASSETS.md](../public/ASSETS.md). Photos use responsive Next.js image optimization; the hero is preloaded, other photos are lazy-loaded, and lightbox images mount only when opened. The soccer group photo appears once in About Me.
+- The silent, upright H.264 web video is `public/videos/soccer-web.mp4` (1280 × 720, about 319 KB, 7.6 seconds); its poster is `public/images/soccer/soccer-poster.jpg` (about 83 KB). Native controls, inline playback, `preload="none"`, and reserved 16:9 proportions remain. The MP4 is not requested before user playback.
+- Displayed original photographs remain unchanged, consistent with the owner's earlier decision. The asset inventory still records location metadata in several originals. This sprint does not strip metadata or mark that finding resolved. Files under `public/` are directly accessible even when components use optimized variants.
+- The unused participant screenshot `public/images/community/colorstack_minerva2.jpeg` and original `public/videos/soccer_video.mov` are absent from the current tree. Read-only history inspection confirms both files exist in commit `89609d2` (Add personal photos and soccer video), and normal commit `28ea9e0` removed them from the current tree. Deletion did not erase the historical files or their embedded metadata/participant details.
+- No history rewrite or exhaustive privacy audit was performed. These historical-media findings remain open for the owner's publication decision. Publishing the Git history would make reachable originals available; deployment serves the current tree. Any future history cleanup requires separate approval.
+- The AWS badge and owner-supplied Udacity logo remain beside their verified credential titles. No media was added, recompressed, or removed in this cleanup.
 
-Set `NEXT_PUBLIC_SITE_URL` to the actual HTTPS origin in the deployment environment, using `.env.example` as the configuration reference. No production domain is assumed. Local builds succeed without it; Next.js then uses its development fallback for absolute social-image URLs, so those URLs are not production-ready until this value is supplied.
+## Production origin and deployment configuration
 
-With a real origin configured, the app emits a root canonical URL, Open Graph URL, and absolute social image URLs. Without it, no canonical or Open Graph page URL is invented. The generated 1200 × 630 social preview uses only the supplied first name, approved interests, and Minerva course of study; no social handle is fabricated. The SVG favicon reuses the existing circle-and-arrow header mark.
+No production domain is assumed. `NEXT_PUBLIC_SITE_URL` accepts an absolute HTTPS origin without credentials, a path, query, or fragment; HTTP is accepted only for local loopback testing. Invalid configured values fail clearly. `.env.example` documents the variable; actual `.env` files remain untracked.
 
-Do not publish while the origin or public contact method is missing. A résumé remains an optional content addition.
+1. After push/deployment approval, import the repository into Vercel using the Next.js preset, repository root, Node.js 22.x, `npm ci`, and `npm run build`.
+2. If the stable production domain is not yet known, the first deployment can leave `NEXT_PUBLIC_SITE_URL` unset. Builds pass, but Next.js warns about the localhost social-image fallback; canonical and page Open Graph URLs are omitted. Treat that deployment as a configuration check before sharing.
+3. Once Vercel assigns the stable `.vercel.app` domain, set `NEXT_PUBLIC_SITE_URL` to its exact HTTPS origin in the Production environment and redeploy so metadata is rebuilt.
+4. Verify the canonical URL, `og:url`, absolute Open Graph/Twitter image URLs, `/opengraph-image` (1200 × 630 PNG), `/icon.svg`, contact links, navigation, and video on the live deployment.
 
+## Final validation
 
-## Sprint 5A validation
+- ESLint, TypeScript, and the production build pass. The only observed build warning is the expected missing-production-origin fallback described above.
+- The final audit passed exact contact URL and metadata consistency checks, found no outdated/placeholder page text, decoded displayed images, and received HTTP 200 for all 29 discovered local asset/link URLs and the favicon. The generated Open Graph PNG returned HTTP 200 at 1200 × 630 and was visually inspected for complete, unclipped text.
+- Chrome checks cover 320, 390, 768, and 1440 px layouts, both color themes, section navigation/direct anchors, carousel counts/controls/touch swipes, independent vertical scrolling, and photo lightbox keyboard behavior.
+- Soccer checks cover shot/replay/skip, native playback, pause/rewind, mid-shot cancellation, focus preservation, stable reveal height, reduced motion, and no-JavaScript highlight access. No runtime exceptions were observed.
+- Axe reported zero violations in both themes (45 rules passed each); automated results complement the manual keyboard checks and do not replace assistive-technology testing.
+- GitHub returned HTTP 200. LinkedIn returned HTTP 999 to the automated request; its owner-confirmed URL remains unchanged and needs a manual browser check. Email link syntax is verified; delivery and mail-handler setup cannot be established by an HTTP check.
+- No new dependencies, functionality, media, or generated application artifacts are included in the commit.
 
-- ESLint, TypeScript, and the production build pass. The build's missing `metadataBase` warning is expected until the real origin is configured.
-- Headless Chrome checked 1440, 768, 390, and 320 px viewports: no horizontal overflow, complete image loading, preserved portrait proportions, alternating projects, responsive timeline, photo journal, and Contact layout.
-- Keyboard checks pass for all five section links, skip link, theme switch and persistence, photo viewer focus containment/Escape/restoration, and native soccer playback. Smooth scrolling is disabled with reduced motion; reveal content remains visible without JavaScript.
-- Axe reported zero violations in light and dark themes (44 rules passed each). Its manual contrast-review results cover a decorative symbol and the two timeline dates; the dates use accent on background with 5.96:1 light and 9.97:1 dark contrast.
-- All 12 distinct published navigation/asset links resolve. Social preview and favicon routes return HTTP 200. There are no public external contact links to validate yet.
-- Video requests begin only on user playback; the visible player has native controls and no autoplay. Full photo viewer images mount only when opened. Portfolio photos use responsive Next.js image optimization; originals remain preserved.
-- No additional runtime dependencies were introduced. Chrome checks do not replace testing on physical mobile devices or with a screen reader.
+## Physical-device and publication checks still needed
 
+- Test iPhone/iPad Safari and Android Chrome: touch carousel swipes without blocking vertical scrolling, image crops, native inline/fullscreen video controls, orientation, shot/replay, and skip.
+- Test a real mail handler, the LinkedIn profile in a normal browser, and VoiceOver or another screen reader for section navigation, photo dialogs, and the goal announcement.
+- After authorized deployment and production-origin configuration, inspect the live social preview and all public links. Social networks may cache an earlier preview and require a re-scrape.
+- Retain the unresolved original-metadata and historical-media findings above when deciding whether to publish the repository history.
 
-## Soccer bonus round validation
-
-The Beyond carousel now contains four slides: the three existing photo stories and certifications. The soccer video appears once, in a dedicated bonus round below it, using the existing optimized MP4 and poster. No new media or dependencies were added.
-
-- The SVG/CSS penalty shot reveals the native player and announces “GOOOAL! Highlight reel unlocked!” without moving focus. Replay resets the ball, closes the highlights, pauses/rewinds the clip, and returns focus to the shot button.
-- “Skip to highlights” is a native disclosure, available without JavaScript. Opening the player does not autoplay or request the MP4 before user playback. Reserved player space prevents a layout jump during reveal.
-- Reduced motion completes the shot immediately, including when the preference changes mid-shot. Hiding the highlights, scrolling the player out of view, or hiding the browser tab pauses playback.
-- ESLint, TypeScript, and the production build pass. The existing missing-production-origin warning remains until `NEXT_PUBLIC_SITE_URL` is configured.
-- Chrome checked 320, 390, 768, and 1440 px layouts in both themes, with no horizontal overflow or height change on reveal. Keyboard checks cover shot, replay, skip, native playback, mid-shot cancellation, and focus preservation. No-JavaScript access works.
-- Carousel regression checks cover four-slide counts, arrow controls, Home/End, focus traversal, photo lightbox containment/Escape/restoration, touch swipes, independent vertical scrolling, and no-JavaScript browsing.
-- Axe reported zero violations in both themes (45 rules passed each); Chrome reported no runtime exceptions. Physical-device and assistive-technology testing remain useful before launch.
-
-No push or deployment was performed.
+No push, deployment, or history rewrite was performed.
