@@ -158,11 +158,14 @@ button { cursor: pointer; }
 .carousel-count { min-width: 0; color: var(--accent); font-size: .8125rem; line-height: 1.6; font-variant-numeric: tabular-nums; }
 .carousel-current-title { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--muted); }
 .carousel-buttons { display: flex; flex-shrink: 0; gap: .5rem; }
-.carousel-buttons button { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 50%; color: var(--accent); font-size: 1.25rem; }
-.carousel-buttons button:hover, .carousel-buttons button:focus-visible { border-color: var(--accent); background: var(--surface); }
-.carousel-buttons button[aria-disabled="true"] { opacity: .45; cursor: default; }
+.carousel-buttons button { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--accent); border-radius: 50%; background: var(--accent); color: var(--background); font-size: 1.5rem; }
+.carousel-buttons button:hover, .carousel-buttons button:focus-visible { box-shadow: 0 0 0 3px var(--background), 0 0 0 4px var(--accent); }
+.carousel-buttons button[aria-disabled="true"] { background: var(--surface); color: var(--muted); border-color: var(--border); cursor: default; }
 .carousel-hint { margin-block: .5rem 1rem; color: var(--muted); font-size: .75rem; line-height: 1.6; }
 .carousel-track { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 100%; gap: 1.5rem; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 4px; padding: 4px 4px 1rem; scrollbar-width: thin; scrollbar-color: var(--accent) var(--surface); }
+@media (min-width: 360px) {
+  .carousel-track { grid-auto-columns: calc(100% - clamp(2.5rem, 7vw, 5.5rem)); }
+}
 .carousel-track:focus-visible { outline-offset: 2px; border-radius: 8px; }
 .carousel-slide { min-width: 0; scroll-snap-align: start; }
 .carousel-slide > .beyond-card, .carousel-slide > .beyond-certifications { height: 100%; }

@@ -35,6 +35,7 @@ export function Carousel({ slides, label }: { slides: readonly Slide[]; label: s
     const viewport = track.current;
     if (!viewport) return;
     const items = Array.from(viewport.children) as HTMLElement[];
+    viewport.scrollTo({ left: 0, behavior: "instant" });
     sync.current = () => {
       const origin = items[0].offsetLeft;
       let nearest = 0;
@@ -90,7 +91,7 @@ export function Carousel({ slides, label }: { slides: readonly Slide[]; label: s
           <button type="button" aria-label="Next slide" aria-controls={id} aria-disabled={active === slides.length - 1} onClick={() => goTo(current.current + 1)}><span aria-hidden="true">→</span></button>
         </div>
       </div>
-      <p id={`${id}-instructions`} className="carousel-hint">Scroll horizontally to explore.{ready && <span className="sr-only"> Focus the slides to use Left and Right arrow keys, Home, or End. You can also use the Previous and Next buttons.</span>}</p>
+      <p id={`${id}-instructions`} className="carousel-hint">Swipe or use arrows to explore.{ready && <span className="sr-only"> Focus the slides to use Left and Right arrow keys, Home, or End. You can also use the Previous and Next buttons.</span>}</p>
       <div
         ref={track}
         id={id}

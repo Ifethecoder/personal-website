@@ -15,6 +15,18 @@ export type BeyondStory = {
 
 export const beyondStories = [
   {
+    id: "openai",
+    kind: "photo",
+    category: "Memorable moments",
+    title: "A moment at OpenAI.",
+    description: "At the OpenAI Student Collective Builder Party, I met fellow student builders and had a brief conversation with Sam Altman. The experience reinforced the importance of continuing to build and solve meaningful problems beyond schoolwork.",
+    photo: assets.images.highlights.personalHighlight,
+    caption: "OpenAI Student Collective Builder Party",
+    layout: "narrow",
+    photoPosition: "50% 27%",
+    photoAspectRatio: "3 / 4",
+  },
+  {
     id: "community",
     kind: "photo",
     category: "Student leadership",
@@ -37,18 +49,6 @@ export const beyondStories = [
     caption: "From the hackathon archive · Talk to Users",
     layout: "narrow",
     photoPosition: "50% 52%",
-    photoAspectRatio: "3 / 4",
-  },
-  {
-    id: "openai",
-    kind: "photo",
-    category: "Memorable moments",
-    title: "A moment at OpenAI.",
-    description: "At the OpenAI Student Collective Builder Party, I met fellow student builders and had a brief conversation with Sam Altman. The experience reinforced the importance of continuing to build and solve meaningful problems beyond schoolwork.",
-    photo: assets.images.highlights.personalHighlight,
-    caption: "OpenAI Student Collective Builder Party",
-    layout: "narrow",
-    photoPosition: "50% 27%",
     photoAspectRatio: "3 / 4",
   },
 ] as const satisfies readonly BeyondStory[];
