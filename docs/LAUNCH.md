@@ -1,6 +1,6 @@
 # Launch readiness
 
-The homepage features are complete. This cleanup does not authorize a push, deployment, or Git history rewrite. The repository can be built for deployment; production-origin configuration and the manual checks below remain before public launch.
+The site is live and the homepage features are complete. Sprint 6 does not authorize a push, deployment, or Git history rewrite. Before an authorized update, confirm the existing production-origin setting and complete the manual checks below. No production domain is assumed in this repository.
 
 ## Verified identity and contact
 
@@ -15,11 +15,11 @@ The résumé is intentionally omitted; there is no missing résumé link to fix.
 
 ## Current implementation
 
-- Homepage order: Hero, About Me, Experience, Featured Projects, Beyond the Code, Contact. All five section navigation links use native anchors, visible keyboard focus, and an active-section indicator.
-- The hero and footer retain “Building things. Making moves.” The requested social preview reads “Making things.” and “Making moves.” on two lines, with the existing typography and palette. The full-name title and description accurately describe the Minerva student, two Amazon internships, FireSight, and Yooni.
+- Homepage order: Hero, About Me, Experience, Featured Projects, Beyond the Code, Contact. All five section links retain anchor URLs, visible keyboard focus, and an active-section indicator. The sticky header uses a translucent background and blur after scrolling. Its measured height provides responsive anchor spacing; enhanced link activation separates focus from scrolling to avoid competing browser scrolls. Native direct links and no-JavaScript navigation remain available.
+- The hero and footer retain “Building things. Making moves.” The requested social preview reads “Making things.” and “Making moves.” on two lines, with a deep charcoal-green background, off-white primary text, soft green accents, and “Software Engineer · Builder · Curious Human” supporting text. The full-name title and description accurately describe the Minerva student, two Amazon internships, FireSight, and Yooni.
 - Dark is the default, including without JavaScript or storage access. Saved Light, Dark, and System preferences remain supported and persist when storage is available.
-- Beyond has four horizontal carousel slides: ColorStack Minerva, hackathons, the OpenAI event, and certifications. Native scrolling supports touch and no-JavaScript access; hydrated controls provide counts, Previous/Next, and keyboard Left/Right/Home/End. Photo lightboxes retain Escape handling, focus containment, and focus restoration.
-- The soccer bonus round sits below the carousel. Its continuous 650 ms SVG/CSS shot reveals the native video player and announces the goal without moving focus. Replay resets the ball, pauses/rewinds the video, closes highlights, and returns focus to the shot button. The native “Skip to highlights” disclosure also works without JavaScript. Reserved player space prevents a reveal layout jump.
+- Beyond has four horizontal carousel slides: the OpenAI event first, ColorStack Minerva, hackathons, and certifications. It starts on the first slide, with prominent arrow controls, a visible count, a “Swipe or use arrows to explore” hint, and a partial next-slide preview from 360px wide. Native scrolling supports touch and no-JavaScript access; hydrated controls provide counts, Previous/Next, and keyboard Left/Right/Home/End. Photo lightboxes retain Escape handling, focus containment, and focus restoration.
+- The soccer bonus round sits below the carousel. “Want to see me in action?”, “Score a goal to unlock my soccer highlights.”, and “Take a shot to unlock” explain the reward before interaction. A locked preview reuses the existing poster through Next.js Image. Its continuous 650 ms SVG/CSS shot reveals the native video player and announces the goal without moving focus. Replay resets the ball, pauses/rewinds the video, closes highlights, and returns focus to the shot button. The native “Skip to highlights” disclosure also works without JavaScript. Reserved player space prevents a reveal layout jump.
 - Reduced motion completes the shot immediately and disables entrance/hover transforms. Hiding highlights, scrolling the player out of view, or hiding the browser tab pauses playback. There is no automatic carousel rotation or video autoplay.
 - Diagonal arrows remain only on Email me, GitHub, and LinkedIn. The favicon and social preview use a green circle motif.
 
@@ -41,7 +41,7 @@ No production domain is assumed. `NEXT_PUBLIC_SITE_URL` accepts an absolute HTTP
 3. Once Vercel assigns the stable `.vercel.app` domain, set `NEXT_PUBLIC_SITE_URL` to its exact HTTPS origin in the Production environment and redeploy so metadata is rebuilt.
 4. Verify the canonical URL, `og:url`, absolute Open Graph/Twitter image URLs, `/opengraph-image` (1200 × 630 PNG), `/icon.svg`, contact links, navigation, and video on the live deployment.
 
-## Final validation
+## Pre-launch validation baseline
 
 - ESLint, TypeScript, and the production build pass. The only observed build warning is the expected missing-production-origin fallback described above.
 - The final audit passed exact contact URL and metadata consistency checks, found no outdated/placeholder page text, decoded displayed images, and received HTTP 200 for all 29 discovered local asset/link URLs and the favicon. The generated Open Graph PNG returned HTTP 200 at 1200 × 630 and was visually inspected for complete, unclipped text.
@@ -59,3 +59,14 @@ No production domain is assumed. `NEXT_PUBLIC_SITE_URL` accepts an absolute HTTP
 - Retain the unresolved original-metadata and historical-media findings above when deciding whether to publish the repository history.
 
 No push, deployment, or history rewrite was performed.
+
+
+## Sprint 6 validation and deployment considerations
+
+- ESLint, TypeScript, and the production build pass. No dependencies or media files were added. Contact email, GitHub, LinkedIn, and résumé omission are preserved.
+- Chrome checks at 320, 390, 768, and 1440 px verify sticky positioning, scrolling blur, active-section updates, keyboard activation, direct section anchors, and visible headings below the header.
+- The OpenAI-first carousel starts at Slide 1 of 4. Checks cover prominent controls, next-slide previews where practical, keyboard arrows/Home/End, touch swipes, independent vertical scrolling, responsive resizing, and no-JavaScript browsing. Native modal photo viewers remain above the header and retain focus containment, Escape, and restoration. The current slide survives desktop/tablet/mobile resizing; navigation back through fragment history and the header’s return-to-top state also pass.
+- The dark 1200 × 630 Open Graph PNG returned HTTP 200 and was visually inspected. The existing `NEXT_PUBLIC_SITE_URL` validation and metadata configuration are unchanged; no production domain was added or replaced. An additional build with a loopback test origin verified canonical, Open Graph, and Twitter image URLs and successful image responses. The configured-origin build has no metadata-base warning.
+- Soccer checks cover exact reward copy, loaded locked poster, shot/replay/skip, stable reveal height in both themes, native playback without autoplay, pause/rewind, mid-shot cancellation, reduced motion, and no-JavaScript highlight access. Axe reported zero violations in both themes (45 rules passed each); no runtime exceptions were observed. Touch shot/replay/skip, offscreen pause, saved-theme persistence, blocked storage, and no-JavaScript dark defaults also pass.
+- The unresolved media/history notes above are preserved. This sprint does not clean metadata or rewrite history.
+- After an approved deployment, verify the live canonical and social URLs still use the configured production origin. Existing social-preview caches may need a re-scrape. Physical iOS/Safari and Android testing, screen-reader testing, mail-handler checks, and manual LinkedIn verification remain as listed above.

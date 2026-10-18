@@ -12,12 +12,12 @@ function HighlightHeader({ story, unlocked }: { story: Story; unlocked: boolean 
     <div className="bonus-reel-header">
       <p className="eyebrow">{story.category}</p>
       <h4>{story.title}</h4>
-      <p className="bonus-unlock-message">{unlocked ? copy.unlocked : "Score a goal or skip to watch."}</p>
+      <p className="bonus-unlock-message">{unlocked ? copy.unlocked : copy.description}</p>
     </div>
   );
 }
 
-export function SoccerBonus({ story, children }: { story: Story; children: ReactNode }) {
+export function SoccerBonus({ story, preview, children }: { story: Story; preview: ReactNode; children: ReactNode }) {
   const root = useRef<HTMLElement>(null);
   const shotButton = useRef<HTMLButtonElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -97,13 +97,13 @@ export function SoccerBonus({ story, children }: { story: Story; children: React
         <div className="bonus-intro">
           <p className="eyebrow">{copy.eyebrow}</p>
           <h3 id="soccer-bonus-heading">{copy.heading}</h3>
-          <p className="bonus-description">{copy.description}</p>
+          <p id="soccer-bonus-description" className="bonus-description">{copy.description}</p>
           <p className="bonus-note">{story.description}</p>
         </div>
         <div className="bonus-game">
           <PenaltyPitch onShotEnd={finishShot} />
           <div className="bonus-play-controls">
-            <button ref={shotButton} type="button" className="bonus-shoot" aria-disabled={!enhanced || phase !== "ready"} onClick={shoot}>{phase === "shooting" ? "On its way…" : copy.shoot}</button>
+            <button ref={shotButton} type="button" className="bonus-shoot" aria-describedby="soccer-bonus-description" aria-disabled={!enhanced || phase !== "ready"} onClick={shoot}>{phase === "shooting" ? "On its way…" : copy.shoot}</button>
             <button type="button" className="bonus-replay" onClick={reset}>{copy.replay}</button>
           </div>
           <p className="bonus-celebration" aria-hidden="true">{phase === "goal" && <span>{copy.goal}</span>}</p>
@@ -136,7 +136,14 @@ export function SoccerBonus({ story, children }: { story: Story; children: React
         </details>
         <div className="bonus-locked-preview" aria-hidden="true">
           <HighlightHeader story={story} unlocked={false} />
-          <div className="bonus-video-frame bonus-waiting"><span>Your highlight is waiting.</span></div>
+          <div className="bonus-video-frame bonus-waiting">
+            {preview}
+            <div className="bonus-lock-overlay">
+              <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="5" y="10" width="14" height="11" rx="2" /><path d="M8 10V6a4 4 0 0 1 8 0v4" /></svg>
+              <span className="bonus-lock-title">{copy.locked}</span>
+              <span className="bonus-lock-hint">{copy.previewHint}</span>
+            </div>
+          </div>
           <p className="bonus-reel-caption">{story.caption}</p>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { beyondStories, soccerStory } from "@/content/beyond";
 import { Certifications } from "./certifications";
 import { BeyondStory } from "./beyond-story";
@@ -14,7 +15,10 @@ export function BeyondCode() {
         ...beyondStories.map((story) => ({ id: story.id, label: story.title, content: <BeyondStory story={story} /> })),
         { id: "certifications", label: "Certifications", content: <Certifications /> },
       ]} />
-      <SoccerBonus story={{ category: soccerStory.category, title: soccerStory.title, description: soccerStory.description, caption: soccerStory.caption }}>
+      <SoccerBonus
+        story={{ category: soccerStory.category, title: soccerStory.title, description: soccerStory.description, caption: soccerStory.caption }}
+        preview={<Image src={soccerStory.poster.src} alt="" fill sizes="(min-width: 1024px) 800px, calc(100vw - 96px)" className="object-cover" />}
+      >
         <SoccerVideo video={soccerStory.video} poster={soccerStory.poster.src.src} />
       </SoccerBonus>
     </section>
