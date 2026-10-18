@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 
 const sectionLinks = [
   { href: "#about", label: "About" },
@@ -20,7 +20,11 @@ export function SiteNavigation() {
 
     function update() {
       frame = null;
-      const boundary = Math.min(window.innerHeight * .25, 200);
+      const headerBottom = document.querySelector(".site-header")?.getBoundingClientRect().bottom ?? 0;
+      const scrollPadding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || headerBottom;
+      const sectionMargin = sections[0] ? parseFloat(getComputedStyle(sections[0]).scrollMarginTop) || 0 : 0;
+      // Match the native anchor offset, including wrapped mobile headers.
+      const boundary = Math.max(scrollPadding + sectionMargin + 16, Math.min(window.innerHeight * .25, 200));
       let next: string | null = null;
       for (const section of sections) {
         if (section.getBoundingClientRect().top <= boundary) next = section.id;
@@ -55,11 +59,22 @@ export function SiteNavigation() {
     };
   }, []);
 
+  function navigate(event: MouseEvent<HTMLAnchorElement>, href: string) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const section = document.getElementById(href.slice(1));
+    if (!section) return;
+    event.preventDefault();
+    if (window.location.hash !== href) window.history.pushState(null, "", href);
+    // Avoid a second browser focus scroll competing with the anchor animation.
+    section.focus({ preventScroll: true });
+    section.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  }
+
   return (
     <nav className="site-nav order-3 basis-full lg:order-none lg:ml-auto lg:basis-auto" aria-label="Main navigation">
       <ul>
         {sectionLinks.map((link) => (
-          <li key={link.href}><a href={link.href} aria-current={active === link.href.slice(1) ? "location" : undefined}>{link.label}</a></li>
+          <li key={link.href}><a href={link.href} onClick={(event) => navigate(event, link.href)} aria-current={active === link.href.slice(1) ? "location" : undefined}>{link.label}</a></li>
         ))}
       </ul>
     </nav>

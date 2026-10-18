@@ -1,5 +1,6 @@
 import { Contact } from "@/components/contact";
 import { BeyondCode } from "@/components/beyond-code";
+import { SiteHeader } from "@/components/site-header";
 import { SiteNavigation } from "@/components/site-navigation";
 import { Experience } from "@/components/experience";
 import { FeaturedProjects } from "@/components/featured-projects";
@@ -13,13 +14,13 @@ export default function Home() {
   return (
     <div className="page-shell mx-auto flex min-h-svh max-w-7xl flex-col px-6 sm:px-10 lg:px-16">
       <a className="skip-link" href="#main">Skip to content</a>
-      <header className="site-header flex flex-wrap items-center justify-between gap-4 py-6 sm:py-8">
+      <SiteHeader>
         <a href="/" aria-label="Personal portfolio home" className="wordmark inline-flex items-center gap-3 text-sm font-semibold">
           A personal space
         </a>
         <SiteNavigation />
         <ThemeSwitcher />
-      </header>
+      </SiteHeader>
       <main id="main" className="flex-1" tabIndex={-1}>
         <Hero />
         <About />
